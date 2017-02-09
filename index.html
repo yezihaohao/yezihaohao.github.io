@@ -167,7 +167,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-test"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Nodejs爬虫-抓取豆瓣电影网页数据（上）"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -175,7 +175,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/09/test/">test</a>
+      <a class="article-title" href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/">Nodejs爬虫--抓取豆瓣电影网页数据（上）</a>
     </h1>
   
 
@@ -183,68 +183,35 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/09/test/" class="article-date">
-	  <time datetime="2017-02-08T16:26:52.000Z" itemprop="datePublished">2017-02-09</time>
+	<a href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/" class="article-date">
+	  <time datetime="2017-02-09T03:54:42.000Z" itemprop="datePublished">2017-02-09</time>
 	</a>
 
       
+    <a class="article-category-link" href="/categories/爬虫/">爬虫</a>
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#123</p>
-
+        <p>之前写了一个nodejs的开源爬虫小项目，补上博客详细解析下代码。</p>
+<p><code>PS：</code>共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将抓取的数据存入mongodb数据库。</p>
+<h2 id="我们快速开始吧"><a href="#我们快速开始吧" class="headerlink" title="我们快速开始吧"></a>我们快速开始吧</h2><h3 id="首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package-json"><a href="#首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package-json" class="headerlink" title="首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json"></a>首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure>
+<h3 id="然后用npm安装相关库文件："><a href="#然后用npm安装相关库文件：" class="headerlink" title="然后用npm安装相关库文件："></a>然后用npm安装相关库文件：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev superagent cheerio eventproxy <span class="keyword">async</span></div></pre></td></tr></table></figure>
+<p>需要用到的nodejs模块如下(具体用法请查询网上相关资料)：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent'</span>),     <span class="comment">//nodejs里面一个非常方便的客户端代理请求模块，支持get,post,put,delete等</span></div><div class="line">    cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>),           <span class="comment">//类似于jQuery的DOM操作模块，可以提取html中想要的信息</span></div><div class="line">    eventproxy = <span class="built_in">require</span>(<span class="string">'eventproxy'</span>),     <span class="comment">//控制异步请求并发，可以监听请求，使得某些请求完毕之后在发送请求</span></div><div class="line">    assert = <span class="built_in">require</span>(<span class="string">'assert'</span>),             <span class="comment">//异常抛出判断模块，assert.equal(err, null);  如果err不为null,则直接抛出异常</span></div><div class="line">    <span class="keyword">async</span> = <span class="built_in">require</span>(<span class="string">'async'</span>);              <span class="comment">//控制请求并发连接数</span></div></pre></td></tr></table></figure></p>
+        <!-- 之前写了一个nodejs的开源爬虫小项目，补上博客详细解析下代码。
+PS：共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将抓取的数据存入mongodb数据库。
+我们快速开始吧首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json1npm init
+然后用npm安装相关库文件：1npm install --save-dev superagent cheeri......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
 
-<!-- Table of Contents -->
-
-  
-    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/08/hello-world/" class="article-date">
-	  <time datetime="2017-02-08T09:42:32.152Z" itemprop="datePublished">2017-02-08</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
     </footer>
   </div>
   
