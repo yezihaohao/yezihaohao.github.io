@@ -194,7 +194,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="项目中常用正则表达式使用整合大全"><a href="#项目中常用正则表达式使用整合大全" class="headerlink" title="项目中常用正则表达式使用整合大全"></a>项目中常用正则表达式使用整合大全</h2><h3 id="提取网页标签内容"><a href="#提取网页标签内容" class="headerlink" title="提取网页标签内容"></a>提取网页标签内容</h3><h4 id="一-单个标签提取"><a href="#一-单个标签提取" class="headerlink" title="一.单个标签提取"></a>一.单个标签提取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> str = `&lt;a class=<span class="string">"menu"</span>&gt;GitHub&lt;/a&gt;`;</div><div class="line"></div><div class="line"><span class="built_in">let</span> content = str.match(/&lt;a class=<span class="string">"menu"</span>&gt;([\s\S]+)&lt;\/a&gt;/)[1];</div></pre></td></tr></table></figure>
+        <!-- 项目中常用正则表达式使用整合大全提取网页标签内容一.单个标签提取123let str = `&lt;a class="menu"&gt;GitHub&lt;/a&gt;`;let content = str.match(/&lt;a class="menu"&gt;([\s\S]+)&lt;\/a&gt;/)[1];
 
+不定时更新中…...  -->
+        <p class="article-more-link">
+          <a href="/2017/02/10/Javascript正则表达式整合/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
