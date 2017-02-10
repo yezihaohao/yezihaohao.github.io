@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[Javascript正则表达式整合]]></title>
+      <url>http://yoursite.com/2017/02/10/Javascript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%95%B4%E5%90%88/</url>
+      <content type="html"><![CDATA[<h2 id="项目中常用正则表达式使用整合大全"><a href="#项目中常用正则表达式使用整合大全" class="headerlink" title="项目中常用正则表达式使用整合大全"></a>项目中常用正则表达式使用整合大全</h2><h3 id="提取网页标签内容"><a href="#提取网页标签内容" class="headerlink" title="提取网页标签内容"></a>提取网页标签内容</h3><h4 id="一-单个标签提取"><a href="#一-单个标签提取" class="headerlink" title="一.单个标签提取"></a>一.单个标签提取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> str = `&lt;a class=<span class="string">"menu"</span>&gt;GitHub&lt;/a&gt;`;</div><div class="line"></div><div class="line"><span class="built_in">let</span> content = str.match(/&lt;a class=<span class="string">"menu"</span>&gt;([\s\S]+)&lt;\/a&gt;/)[1];</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Nodejs爬虫--抓取豆瓣电影网页数据（上）]]></title>
       <url>http://yoursite.com/2017/02/09/Nodejs%E7%88%AC%E8%99%AB-%E6%8A%93%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%EF%BC%88%E4%B8%8A%EF%BC%89/</url>
       <content type="html"><![CDATA[<p>之前写了一个nodejs的开源爬虫小项目，补上博客详细解析下代码。</p>

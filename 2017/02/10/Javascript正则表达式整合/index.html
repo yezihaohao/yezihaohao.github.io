@@ -3,22 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>分类 | 前端博客</title>
+  <title>javascript正则表达式整合 | 前端博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="Javascript" />
   
   
   
-  <meta name="description" content="学习总结 思考感悟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  
+  <meta name="description" content="项目中常用正则表达式使用整合大全提取网页标签内容一.单个标签提取123let str = `&amp;lt;a class=&quot;menu&quot;&amp;gt;GitHub&amp;lt;/a&amp;gt;`;let content = str.match(/&amp;lt;a class=&quot;menu&quot;&amp;gt;([\s\S]+)&amp;lt;\/a&amp;gt;/)[1];">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript正则表达式整合">
+<meta property="og:url" content="http://yoursite.com/2017/02/10/Javascript正则表达式整合/index.html">
 <meta property="og:site_name" content="前端博客">
-<meta property="og:description" content="学习总结 思考感悟">
-<meta property="og:updated_time" content="2017-02-09T03:22:20.309Z">
+<meta property="og:description" content="项目中常用正则表达式使用整合大全提取网页标签内容一.单个标签提取123let str = `&amp;lt;a class=&quot;menu&quot;&amp;gt;GitHub&amp;lt;/a&amp;gt;`;let content = str.match(/&amp;lt;a class=&quot;menu&quot;&amp;gt;([\s\S]+)&amp;lt;\/a&amp;gt;/)[1];">
+<meta property="og:updated_time" content="2017-02-10T04:57:08.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="学习总结 思考感悟">
+<meta name="twitter:title" content="Javascript正则表达式整合">
+<meta name="twitter:description" content="项目中常用正则表达式使用整合大全提取网页标签内容一.单个标签提取123let str = `&amp;lt;a class=&quot;menu&quot;&amp;gt;GitHub&amp;lt;/a&amp;gt;`;let content = str.match(/&amp;lt;a class=&quot;menu&quot;&amp;gt;([\s\S]+)&amp;lt;\/a&amp;gt;/)[1];">
   
     <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">
   
@@ -50,8 +52,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -76,7 +76,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/d4ee6a07e2f998c641eb.jpg">
               </a>
             
@@ -145,79 +145,93 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><div class="archives-wrap" style="margin: 0px;">
-	<div class="col-lg-10 col-lg-offset-1 col-md-10">
-		<div class="archives-category-wrap">
-			<blockquote>
-			
-			  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/正则表达式/">正则表达式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">1</span></li></ul>
-			
-			</blockquote>
-		</div>
-		
-		<!-- 分类列表 -->
-
+          <section id="main" style="float:none;"><article id="post-Javascript正则表达式整合" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
         
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="正则表达式">
-                <h1 class="archive-category">正则表达式</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Javascript正则表达式整合
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
       
-	<a href="/2017/02/10/Javascript正则表达式整合/" class="archive-article-date">
+	<a href="/2017/02/10/Javascript正则表达式整合/" class="article-date">
 	  <time datetime="2017-02-10T03:54:50.000Z" itemprop="datePublished">2017-02-10</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/10/Javascript正则表达式整合/">Javascript正则表达式整合</a>
-    </h1>
-  
+    <a class="article-category-link" href="/categories/正则表达式/">正则表达式</a>
 
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
-        
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="爬虫">
-                <h1 class="archive-category">爬虫</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-	<a href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/" class="archive-article-date">
-	  <time datetime="2017-02-09T03:54:42.000Z" itemprop="datePublished">2017-02-09</time>
-	</a>
+        <h2 id="项目中常用正则表达式使用整合大全"><a href="#项目中常用正则表达式使用整合大全" class="headerlink" title="项目中常用正则表达式使用整合大全"></a>项目中常用正则表达式使用整合大全</h2><h3 id="提取网页标签内容"><a href="#提取网页标签内容" class="headerlink" title="提取网页标签内容"></a>提取网页标签内容</h3><h4 id="一-单个标签提取"><a href="#一-单个标签提取" class="headerlink" title="一.单个标签提取"></a>一.单个标签提取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> str = `&lt;a class=<span class="string">"menu"</span>&gt;GitHub&lt;/a&gt;`;</div><div class="line"></div><div class="line"><span class="built_in">let</span> content = str.match(/&lt;a class=<span class="string">"menu"</span>&gt;([\s\S]+)&lt;\/a&gt;/)[1];</div></pre></td></tr></table></figure>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/">Nodejs爬虫--抓取豆瓣电影网页数据（上）</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
+    </div>
+    <footer class="article-footer">
+      
         
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/02/10/Javascript正则表达式整合/" data-title="Javascript正则表达式整合" data-url="http://yoursite.com/2017/02/10/Javascript正则表达式整合/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"iTimeTraveler"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
 	</div>
-</div></section>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Nodejs爬虫--抓取豆瓣电影网页数据（上）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#项目中常用正则表达式使用整合大全"><span class="toc-number">1.</span> <span class="toc-text">项目中常用正则表达式使用整合大全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#提取网页标签内容"><span class="toc-number">1.1.</span> <span class="toc-text">提取网页标签内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一-单个标签提取"><span class="toc-number">1.1.1.</span> <span class="toc-text">一.单个标签提取</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       
@@ -308,6 +322,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 
