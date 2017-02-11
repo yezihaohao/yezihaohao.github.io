@@ -62,6 +62,9 @@
       //     '</div>',
       //   '</div>'
       // ].join('');
+
+      var html = '';
+
       var box = $(html);
 
       $('body').append(box);
