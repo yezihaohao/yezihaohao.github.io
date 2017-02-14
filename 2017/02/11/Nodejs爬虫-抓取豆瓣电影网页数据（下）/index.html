@@ -16,7 +16,7 @@
 首先用npm安装第三方数据库操作包：mongoose.关于mongoose详情请查看官方文档1npm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nodejs爬虫--抓取豆瓣电影网页数据（下）">
-<meta property="og:url" content="http://yoursite.com/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/index.html">
+<meta property="og:url" content="https://yezihaohao.github.io/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/index.html">
 <meta property="og:site_name" content="前端博客">
 <meta property="og:description" content="接着上篇 Nodejs爬虫–抓取豆瓣电影网页数据（上）  本篇主要描述将上次抓取的数据存入mongodb数据库  前提：百度或谷歌mongodb的安装教程，安装本地并成功运行  推荐一款mongodb数据库可视化管理工具：Robomongo。可以加群264591039获取安装包或自行寻找资源
 
@@ -180,7 +180,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>接着上篇 <a href="https://yezihaohao.github.io/2017/02/09/Nodejs%E7%88%AC%E8%99%AB-%E6%8A%93%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%EF%BC%88%E4%B8%8A%EF%BC%89/" target="_blank" rel="external">Nodejs爬虫–抓取豆瓣电影网页数据（上）</a><br>  本篇主要描述将上次抓取的数据存入mongodb数据库<br>  前提：百度或谷歌mongodb的安装教程，安装本地并成功运行<br>  推荐一款mongodb数据库可视化管理工具：Robomongo。可以加群264591039获取安装包或自行寻找资源</p>
+<p>接着上篇 <a href="https://yezihaohao.github.io/2017/02/09/Nodejs%E7%88%AC%E8%99%AB-%E6%8A%93%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%EF%BC%88%E4%B8%8A%EF%BC%89/">Nodejs爬虫–抓取豆瓣电影网页数据（上）</a><br>  本篇主要描述将上次抓取的数据存入mongodb数据库<br>  前提：百度或谷歌mongodb的安装教程，安装本地并成功运行<br>  推荐一款mongodb数据库可视化管理工具：Robomongo。可以加群264591039获取安装包或自行寻找资源</p>
 </blockquote>
 <h3 id="首先用npm安装第三方数据库操作包：mongoose"><a href="#首先用npm安装第三方数据库操作包：mongoose" class="headerlink" title="首先用npm安装第三方数据库操作包：mongoose."></a>首先用npm安装第三方数据库操作包：mongoose.</h3><p>关于mongoose详情请查看<a href="http://mongoosejs.com/index.html" target="_blank" rel="external">官方文档</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev mongoose</div></pre></td></tr></table></figure></p>
 <h3 id="引入mongoose包开始对mongodb进行管理"><a href="#引入mongoose包开始对mongodb进行管理" class="headerlink" title="引入mongoose包开始对mongodb进行管理"></a>引入mongoose包开始对mongodb进行管理</h3><p>当前目录下新建一个mongo.js文件方便管理，在该文件中引入相关包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> mongoose = require(<span class="string">'mongoose'</span>),</div><div class="line">    assert = require(<span class="string">'assert'</span>);</div></pre></td></tr></table></figure></p>
@@ -196,7 +196,7 @@
     <footer class="article-footer">
       
         
-<a data-url="http://yoursite.com/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/" data-id="ciz0mb5hw0001yct8t1z1ttlm" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+<a data-url="https://yezihaohao.github.io/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/" data-id="ciz56atoh0007w0t81tuic76b" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
 <script>window._bd_share_config={
 	"common": {"bdSnsKey":{},
 		"bdText":"",
@@ -208,15 +208,14 @@
 	},
 	"share":{}};
 	</script>
-
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/" data-title="Nodejs爬虫--抓取豆瓣电影网页数据（下）" data-url="http://yoursite.com/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/" data-title="Nodejs爬虫--抓取豆瓣电影网页数据（下）" data-url="https://yezihaohao.github.io/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"iTimeTraveler"};
+	var duoshuoQuery = {short_name:"chenghao"};
 	  (function() {
 	    var ds = document.createElement('script');
 	    ds.type = 'text/javascript';ds.async = true;
@@ -240,6 +239,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/02/14/Vuejs2-X组件化-阿里的G2图表组件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Vuejs2.X组件化-阿里的G2图表组件
+        
+      </div>
+    </a>
   
   
     <a href="/2017/02/10/Javascript正则表达式整合/" id="article-nav-older" class="article-nav-link-wrap">
