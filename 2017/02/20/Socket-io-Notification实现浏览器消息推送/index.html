@@ -3,21 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>前端博客</title>
+  <title>socket.io+notification实现浏览器消息推送 | 前端博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="NodejsSocket.io" />
   
   
   
-  <meta name="description" content="学习总结 思考感悟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端博客">
-<meta property="og:url" content="https://yezihaohao.github.io/index.html">
+  
+  <meta name="description" content="前言
+socket.io: 包含对websocket的封装，可实现服务端和客户端之前的通信。详情见官网 (虽然是英文文档，但还是通俗易懂)。  Notification: Html5新特性，用于浏览器的桌面通知，只有部分浏览器支持。  通过nodejs+Socket.io+Notification实现服务端往浏览器客户端发送自定义消息。  若有问题可加群264591039与我讨论。  转载请注明出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Socket.io+Notification实现浏览器消息推送">
+<meta property="og:url" content="https://yezihaohao.github.io/2017/02/20/Socket-io-Notification实现浏览器消息推送/index.html">
 <meta property="og:site_name" content="前端博客">
-<meta property="og:description" content="学习总结 思考感悟">
+<meta property="og:description" content="前言
+socket.io: 包含对websocket的封装，可实现服务端和客户端之前的通信。详情见官网 (虽然是英文文档，但还是通俗易懂)。  Notification: Html5新特性，用于浏览器的桌面通知，只有部分浏览器支持。  通过nodejs+Socket.io+Notification实现服务端往浏览器客户端发送自定义消息。  若有问题可加群264591039与我讨论。  转载请注明出">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/TEST.gif">
+<meta property="og:updated_time" content="2017-02-21T06:13:06.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端博客">
-<meta name="twitter:description" content="学习总结 思考感悟">
+<meta name="twitter:title" content="Socket.io+Notification实现浏览器消息推送">
+<meta name="twitter:description" content="前言
+socket.io: 包含对websocket的封装，可实现服务端和客户端之前的通信。详情见官网 (虽然是英文文档，但还是通俗易懂)。  Notification: Html5新特性，用于浏览器的桌面通知，只有部分浏览器支持。  通过nodejs+Socket.io+Notification实现服务端往浏览器客户端发送自定义消息。  若有问题可加群264591039与我讨论。  转载请注明出">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/TEST.gif">
   
     <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">
   
@@ -41,9 +49,11 @@
   <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
+    <link rel="stylesheet" href="/css/dialog.css">
   
 
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
   
@@ -52,130 +62,103 @@
 
 <body>
   
-    <header id="header">
-
-  
-    <div id="intrologo" class="intro-logo">
-  
-
-    <canvas width="100%" height="100%"></canvas>
-    <script>
-      var c = document.getElementsByTagName('canvas')[0],
-          x = c.getContext('2d'),
-          w = window.innerWidth,
-          h = window.innerHeight,
-          pr = window.devicePixelRatio || 1,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI*2,
-          v = m.cos,
-          z = m.random
-      c.width = w*pr
-      c.height = h*pr
-      x.scale(pr, pr)
-      x.globalAlpha = 0.6
-
-      
-        function i(){
-            x.clearRect(0,0,w,h)
-            q=[{x:0,y:h*.7+f},{x:0,y:h*.7-f}]
-            while(q[1].x<w+f) d(q[0], q[1])
-        }
-        function d(i,j){   
-            x.beginPath()
-            x.moveTo(i.x, i.y)
-            x.lineTo(j.x, j.y)
-            var k = j.x + (z()*2-0.25)*f,
-                n = y(j.y)
-            x.lineTo(k, n)
-            x.closePath()
-            r-=u/-50
-            x.fillStyle = '#'+(v(r)*127+128<<16 | v(r+u/3)*127+128<<8 | v(r+u/3*2)*127+128).toString(16)
-            x.fill()
-            q[0] = q[1]
-            q[1] = {x:k,y:n}
-        }
-        function y(p){
-            var t = p + (z()*2-1.1)*f
-            return (t>h||t<0) ? y(p) : t
-        }
-        document.getElementById("intrologo").onclick = i
-        document.getElementById("intrologo").ontouchstart = i
-        i()
-      
-    </script>
-    
-
-    
-      <div id="homelogo" class="homelogo"> 
-    
-
-        
-          <div class="homelogoback" >
-            <h1><a href="#content" id="logo">前端博客</a></h1>
-            <h3>学习总结 思考感悟</h3>
-            <h5>chenghao</h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
-          </div>
-        
-    
-    </div>
-  </div>
-
-  <!-- 自适应主页背景大图 -->
-  
-
- <!-- home_logo_image居中 -->
- 
-    <script>
-        var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
-    </script>
-  
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          <a id="beautifont" class="main-nav-link" href="/">首页</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/about">关于</a>
-        
-      </p>
-  </div>
-
-</header>
-  
   <div id="container">
     <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
       
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-    <article id="post-Socket-io-Notification实现浏览器消息推送"  class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Socket-io-Notification实现浏览器消息推送" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/20/Socket-io-Notification实现浏览器消息推送/">Socket.io+Notification实现浏览器消息推送</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Socket.io+Notification实现浏览器消息推送
     </h1>
   
 
@@ -217,232 +200,75 @@
     </div>
     <footer class="article-footer">
       
+        
+<a data-url="https://yezihaohao.github.io/2017/02/20/Socket-io-Notification实现浏览器消息推送/" data-id="cizf41jfx0014f4t8pkr8ufr0" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+<script>window._bd_share_config={
+	"common": {"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"1",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"2",
+		"bdSize":"16"
+	},
+	"share":{}};
+	</script>
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/02/20/Socket-io-Notification实现浏览器消息推送/" data-title="Socket.io+Notification实现浏览器消息推送" data-url="https://yezihaohao.github.io/2017/02/20/Socket-io-Notification实现浏览器消息推送/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"chenghao"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-io/">Socket.io</a></li></ul>
 
     </footer>
   </div>
   
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Vuejs2-X组件化-阿里的G2图表组件"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
     
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/14/Vuejs2-X组件化-阿里的G2图表组件/">Vuejs2.X组件化-阿里的G2图表组件</a>
-    </h1>
   
+    <a href="/2017/02/14/Vuejs2-X组件化-阿里的G2图表组件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Vuejs2.X组件化-阿里的G2图表组件</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/14/Vuejs2-X组件化-阿里的G2图表组件/" class="article-date">
-	  <time datetime="2017-02-14T06:37:13.000Z" itemprop="datePublished">2017-02-14</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>vue 的组件化开发是一个非常不错的机制.’一处开发,多处引用’，不仅降低的维护成本，提高了开发效率，而且单独的组件有单独的视图和交互数据逻辑，使得系统层次更加分明。若有问题可加群264591039与我讨论~转载文章请标明出处！</p>
-</blockquote>
-<h3 id="开发场景"><a href="#开发场景" class="headerlink" title="开发场景"></a>开发场景</h3><p>数据可视化是我们互联网常见的功能，所以难免我们会在项目中插入图表等，找到一个还算可以的图形插件，阿里的G2图形库，详情请参见<a href="https://antv.alipay.com/g2/doc/">G2官网</a>。接下来就开始我们的Vue G2组件化之旅。</p>
-<h3 id="脚手架搭建helloworld"><a href="#脚手架搭建helloworld" class="headerlink" title="脚手架搭建helloworld"></a>脚手架搭建helloworld</h3><p>先用脚手架工具 vue-cli搭建一个vue的helloworld项目(Vue的相关教程请看<a href="https://cn.vuejs.org">Vue官网</a>)，按照readme文档正常运行该项目。</p>
-<h3 id="安装G2插件"><a href="#安装G2插件" class="headerlink" title="安装G2插件"></a>安装G2插件</h3><p>在package.json的目录下用npm包管理工具安装G2插件库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev g2</div></pre></td></tr></table></figure></p>
-<p>我用到的版本是2.2.1，现在最新的好像是2.2.2，应该也没什么问题，不过我没测试过</p>
-<h3 id="新建G2Line-vue单文件组件"><a href="#新建G2Line-vue单文件组件" class="headerlink" title="新建G2Line.vue单文件组件"></a>新建G2Line.vue单文件组件</h3><p>在components目录下新建G2Line.vue文件（当前是以线形图为例的组件）。<br>在template标签中新增标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;!--此处的id用变量，方便同一页面引用多次相同的组件--&gt;</div><div class="line">  &lt;div :id=<span class="string">"id"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure></p>
-        <!-- 前言
-vue 的组件化开发是一个非常不错的机制.’一处开发,多处引用’，不仅降低的维护成本，提高了开发效率，而且单独的组件有单独的视图和交互数据逻辑，使得系统层次更加分明。若有问题可加群264591039与我讨论~转载文章请标明出处！
-
-开发场景数据可视化是我们互联网常见的功能，所以难免我们会在项目中插入图表等，找到一个还算可以的图形插件，阿里的G2图形库，详情请参见G2官网。接下来就开始我......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/14/Vuejs2-X组件化-阿里的G2图表组件/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vuejs/">Vuejs</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 <!-- Table of Contents -->
 
-  
-    <article id="post-Nodejs爬虫-抓取豆瓣电影网页数据（下）"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
     
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发前提"><span class="toc-number">2.</span> <span class="toc-text">开发前提</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-number">3.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写代码"><span class="toc-number">4.</span> <span class="toc-text">编写代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#构建通信环境"><span class="toc-number">4.1.</span> <span class="toc-text">构建通信环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现自定义消息推送"><span class="toc-number">4.2.</span> <span class="toc-text">实现自定义消息推送</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行截图"><span class="toc-number">5.</span> <span class="toc-text">运行截图</span></a></li></ol>
     
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/">Nodejs爬虫--抓取豆瓣电影网页数据（下）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/" class="article-date">
-	  <time datetime="2017-02-11T02:21:28.000Z" itemprop="datePublished">2017-02-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/爬虫/">爬虫</a>
-
     </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>接着上篇 <a href="https://yezihaohao.github.io/2017/02/09/Nodejs%E7%88%AC%E8%99%AB-%E6%8A%93%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%EF%BC%88%E4%B8%8A%EF%BC%89/">Nodejs爬虫–抓取豆瓣电影网页数据（上）</a><br>  本篇主要描述将上次抓取的数据存入mongodb数据库<br>  前提：百度或谷歌mongodb的安装教程，安装本地并成功运行<br>  推荐一款mongodb数据库可视化管理工具：Robomongo。可以加群264591039获取安装包或自行寻找资源</p>
-</blockquote>
-<h3 id="首先用npm安装第三方数据库操作包：mongoose"><a href="#首先用npm安装第三方数据库操作包：mongoose" class="headerlink" title="首先用npm安装第三方数据库操作包：mongoose."></a>首先用npm安装第三方数据库操作包：mongoose.</h3><p>关于mongoose详情请查看<a href="http://mongoosejs.com/index.html">官方文档</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev mongoose</div></pre></td></tr></table></figure></p>
-<h3 id="引入mongoose包开始对mongodb进行管理"><a href="#引入mongoose包开始对mongodb进行管理" class="headerlink" title="引入mongoose包开始对mongodb进行管理"></a>引入mongoose包开始对mongodb进行管理</h3><p>当前目录下新建一个mongo.js文件方便管理，在该文件中引入相关包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> mongoose = require(<span class="string">'mongoose'</span>),</div><div class="line">    assert = require(<span class="string">'assert'</span>);</div></pre></td></tr></table></figure></p>
-        <!-- 
-接着上篇 Nodejs爬虫–抓取豆瓣电影网页数据（上）  本篇主要描述将上次抓取的数据存入mongodb数据库  前提：百度或谷歌mongodb的安装教程，安装本地并成功运行  推荐一款mongodb数据库可视化管理工具：Robomongo。可以加群264591039获取安装包或自行寻找资源
-
-首先用npm安装第三方数据库操作包：mongoose.关于mongoose详情请查看官方文档1n......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/11/Nodejs爬虫-抓取豆瓣电影网页数据（下）/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Javascript正则表达式整合"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/10/Javascript正则表达式整合/">Javascript正则表达式整合</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/10/Javascript正则表达式整合/" class="article-date">
-	  <time datetime="2017-02-10T03:54:50.000Z" itemprop="datePublished">2017-02-10</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/正则表达式/">正则表达式</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="项目中常用正则表达式使用整合大全"><a href="#项目中常用正则表达式使用整合大全" class="headerlink" title="项目中常用正则表达式使用整合大全"></a>项目中常用正则表达式使用整合大全</h2><h3 id="提取网页标签内容"><a href="#提取网页标签内容" class="headerlink" title="提取网页标签内容"></a>提取网页标签内容</h3><h4 id="一-单个标签提取"><a href="#一-单个标签提取" class="headerlink" title="一.单个标签提取"></a>一.单个标签提取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> str = `&lt;a class=<span class="string">"menu"</span>&gt;GitHub&lt;/a&gt;`;</div><div class="line"></div><div class="line"><span class="built_in">let</span> content = str.match(/&lt;a class=<span class="string">"menu"</span>&gt;([\s\S]+)&lt;\/a&gt;/)[1];</div></pre></td></tr></table></figure>
-        <!-- 项目中常用正则表达式使用整合大全提取网页标签内容一.单个标签提取123let str = `&lt;a class="menu"&gt;GitHub&lt;/a&gt;`;let content = str.match(/&lt;a class="menu"&gt;([\s\S]+)&lt;\/a&gt;/)[1];
-
-不定时更新中…...  -->
-        <p class="article-more-link">
-          <a href="/2017/02/10/Javascript正则表达式整合/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Nodejs爬虫-抓取豆瓣电影网页数据（上）"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/">Nodejs爬虫--抓取豆瓣电影网页数据（上）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/" class="article-date">
-	  <time datetime="2017-02-09T03:54:42.000Z" itemprop="datePublished">2017-02-09</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/爬虫/">爬虫</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前写了一个nodejs的开源爬虫小项目，补上博客详细解析下代码。</p>
-<p><code>PS：</code>共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将抓取的数据存入mongodb数据库。</p>
-<h2 id="我们快速开始吧"><a href="#我们快速开始吧" class="headerlink" title="我们快速开始吧"></a>我们快速开始吧</h2><h3 id="首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package-json"><a href="#首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package-json" class="headerlink" title="首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json"></a>首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json</h3><p>新建spider文件夹，在该文件夹下面初始化package.json<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure></p>
-<h3 id="然后用npm安装相关库文件："><a href="#然后用npm安装相关库文件：" class="headerlink" title="然后用npm安装相关库文件："></a>然后用npm安装相关库文件：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev superagent cheerio eventproxy <span class="keyword">async</span></div></pre></td></tr></table></figure>
-<p>在文件夹下面新建spider.js, 在文件中引入需要用到的nodejs模块如下(具体用法请查询网上相关资料)：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent'</span>),     <span class="comment">//nodejs里面一个非常方便的客户端代理请求模块，支持get,post,put,delete等</span></div><div class="line">    cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>),           <span class="comment">//类似于jQuery的DOM操作模块，可以提取html中想要的信息</span></div><div class="line">    eventproxy = <span class="built_in">require</span>(<span class="string">'eventproxy'</span>),     <span class="comment">//控制异步请求并发，可以监听请求，使得某些请求完毕之后在发送请求</span></div><div class="line">    assert = <span class="built_in">require</span>(<span class="string">'assert'</span>),             <span class="comment">//异常抛出判断模块，assert.equal(err, null);  如果err不为null,则直接抛出异常</span></div><div class="line">    <span class="keyword">async</span> = <span class="built_in">require</span>(<span class="string">'async'</span>);              <span class="comment">//控制请求并发连接数</span></div></pre></td></tr></table></figure></p>
-        <!-- 之前写了一个nodejs的开源爬虫小项目，补上博客详细解析下代码。
-PS：共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将抓取的数据存入mongodb数据库。
-我们快速开始吧首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json新建spider文件夹，在该文件夹下面初始化package.json1npm init
-然后用npm安装相关库文件：1npm in......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-
-
+  </aside>
 </section>
         
       </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
       
       <footer id="footer">
   
@@ -530,9 +356,9 @@ PS：共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将
 <script src="/js/bootstrap.js"></script>
 
 
-  <script src="/js/home.js"></script>
 
 
+  <script src="/js/dialog.js"></script>
 
 
 
