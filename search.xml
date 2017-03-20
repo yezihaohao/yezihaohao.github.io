@@ -14,7 +14,7 @@
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo1.gif" alt="截图"></p>
 <h4 id="复制对象"><a href="#复制对象" class="headerlink" title="复制对象"></a>复制对象</h4><a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;a: 1&#125;;</div><div class="line">&#123;...obj, b: 2&#125;;     // 返回一个新的对象，&#123;a: 1, b: 2&#125;, obj对象不变</div><div class="line">// 等价于下面的用法</div><div class="line">Object.assign(&#123;&#125;, obj, &#123;b: 2&#125;);     // 返回一个新的对象，&#123;a: 1, b: 2&#125;,  obj对象不变</div><div class="line">// 另外Object.assign 还有一个用法</div><div class="line">Object.assign(obj, &#123;b: 2&#125;);      // 返回obj对象并且新增加了b属性：&#123;a: 1, b: 2&#125;  obj对象改变</div><div class="line">// 由于使用的chrome浏览器还不支持第一种用法，只能演示Object.assign。项目中使用babel转换</div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo2.gif" alt="截图"></p>
+<p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo3.gif" alt="截图"></p>
 ]]></content>
     </entry>
     
