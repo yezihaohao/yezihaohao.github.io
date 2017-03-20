@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[Javascript常用和巧用整合]]></title>
+      <url>https://yezihaohao.github.io/2017/03/13/Javascript%E5%B8%B8%E7%94%A8%E5%92%8C%E5%B7%A7%E7%94%A8%E6%95%B4%E5%90%88/</url>
+      <content type="html"><![CDATA[<h3 id="针对项目中常用的javascript-api等，进行一个汇总"><a href="#针对项目中常用的javascript-api等，进行一个汇总" class="headerlink" title="针对项目中常用的javascript api等，进行一个汇总~"></a>针对项目中常用的javascript api等，进行一个汇总~</h3><p>文档持续更新中。。。</p>
+<h3 id="扩展运算符：三个点-…"><a href="#扩展运算符：三个点-…" class="headerlink" title="扩展运算符：三个点 …"></a>扩展运算符：三个点 …</h3><h4 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr1.push(...arr2);  // 把arr2合并到arr1的尾部, arr1改变</div><div class="line">arr1.unshift(...arr2);   // 把arr2合并到arr1的顶部, arr1改变</div><div class="line">[...arr1, ...arr2]  // 生成一个由arr1和arr2组成的新数组，原数组不变</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo1.gif" alt="截图"></p>
+<h4 id="复制对象"><a href="#复制对象" class="headerlink" title="复制对象"></a>复制对象</h4>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Socket.io+Notification实现浏览器消息推送]]></title>
       <url>https://yezihaohao.github.io/2017/02/20/Socket-io-Notification%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/</url>
       <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
