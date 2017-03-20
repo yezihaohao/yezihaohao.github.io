@@ -7,9 +7,15 @@
       <title><![CDATA[Javascript常用和巧用整合]]></title>
       <url>https://yezihaohao.github.io/2017/03/13/Javascript%E5%B8%B8%E7%94%A8%E5%92%8C%E5%B7%A7%E7%94%A8%E6%95%B4%E5%90%88/</url>
       <content type="html"><![CDATA[<h3 id="针对项目中常用的javascript-api等，进行一个汇总"><a href="#针对项目中常用的javascript-api等，进行一个汇总" class="headerlink" title="针对项目中常用的javascript api等，进行一个汇总~"></a>针对项目中常用的javascript api等，进行一个汇总~</h3><p>文档持续更新中。。。</p>
-<h3 id="扩展运算符：三个点-…"><a href="#扩展运算符：三个点-…" class="headerlink" title="扩展运算符：三个点 …"></a>扩展运算符：三个点 …</h3><h4 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr1.push(...arr2);  // 把arr2合并到arr1的尾部, arr1改变</div><div class="line">arr1.unshift(...arr2);   // 把arr2合并到arr1的顶部, arr1改变</div><div class="line">[...arr1, ...arr2]  // 生成一个由arr1和arr2组成的新数组，原数组不变</div></pre></td></tr></table></figure>
+<blockquote>
+<p>前提：有些功能可能浏览器还不支持，需要用babel进行转换，具体的babel环境搭建，请自行Baidu或google。<br>  很多框架的脚手架生成的helloworld项目是已经搭好的环境，比如react或者vue，所以使用脚手架的童鞋大可放心使用。</p>
+</blockquote>
+<h3 id="扩展运算符：三个点-…"><a href="#扩展运算符：三个点-…" class="headerlink" title="扩展运算符：三个点 …"></a>扩展运算符：三个点 …</h3><h4 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> arr1 = [1, 2], arr2 = [3, 4];</div><div class="line">arr1.push(...arr2);  // 把arr2合并到arr1的尾部, arr1改变</div><div class="line">arr1.unshift(...arr2);   // 把arr2合并到arr1的顶部, arr1改变</div><div class="line">[...arr1, ...arr2];  // 生成一个由arr1和arr2组成的新数组，原数组不变</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo1.gif" alt="截图"></p>
-<h4 id="复制对象"><a href="#复制对象" class="headerlink" title="复制对象"></a>复制对象</h4>]]></content>
+<h4 id="复制对象"><a href="#复制对象" class="headerlink" title="复制对象"></a>复制对象</h4><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;a: 1&#125;;</div><div class="line">&#123;...obj, b: 2&#125;;     // 返回一个新的对象，&#123;a: 1, b: 2&#125;, obj对象不变</div><div class="line">// 等价于下面的用法</div><div class="line">Object.assign(&#123;&#125;, obj, &#123;b: 2&#125;);     // 返回一个新的对象，&#123;a: 1, b: 2&#125;,  obj对象不变</div><div class="line">// 另外Object.assign 还有一个用法</div><div class="line">Object.assign(obj, &#123;b: 2&#125;);      // 返回obj对象并且新增加了b属性：&#123;a: 1, b: 2&#125;  obj对象改变</div><div class="line">// 由于使用的chrome浏览器还不支持第一种用法，只能演示Object.assign。项目中使用babel转换</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo2.gif" alt="截图"></p>
+]]></content>
     </entry>
     
     <entry>

@@ -192,9 +192,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="针对项目中常用的javascript-api等，进行一个汇总"><a href="#针对项目中常用的javascript-api等，进行一个汇总" class="headerlink" title="针对项目中常用的javascript api等，进行一个汇总~"></a>针对项目中常用的javascript api等，进行一个汇总~</h3><p>文档持续更新中。。。</p>
-<h3 id="扩展运算符：三个点-…"><a href="#扩展运算符：三个点-…" class="headerlink" title="扩展运算符：三个点 …"></a>扩展运算符：三个点 …</h3><h4 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr1.push(...arr2);  // 把arr2合并到arr1的尾部, arr1改变</div><div class="line">arr1.unshift(...arr2);   // 把arr2合并到arr1的顶部, arr1改变</div><div class="line">[...arr1, ...arr2]  // 生成一个由arr1和arr2组成的新数组，原数组不变</div></pre></td></tr></table></figure>
+<blockquote>
+<p>前提：有些功能可能浏览器还不支持，需要用babel进行转换，具体的babel环境搭建，请自行Baidu或google。<br>  很多框架的脚手架生成的helloworld项目是已经搭好的环境，比如react或者vue，所以使用脚手架的童鞋大可放心使用。</p>
+</blockquote>
+<h3 id="扩展运算符：三个点-…"><a href="#扩展运算符：三个点-…" class="headerlink" title="扩展运算符：三个点 …"></a>扩展运算符：三个点 …</h3><h4 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> arr1 = [1, 2], arr2 = [3, 4];</div><div class="line">arr1.push(...arr2);  // 把arr2合并到arr1的尾部, arr1改变</div><div class="line">arr1.unshift(...arr2);   // 把arr2合并到arr1的顶部, arr1改变</div><div class="line">[...arr1, ...arr2];  // 生成一个由arr1和arr2组成的新数组，原数组不变</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo1.gif" alt="截图"></p>
 <h4 id="复制对象"><a href="#复制对象" class="headerlink" title="复制对象"></a>复制对象</h4>
+        <!-- 针对项目中常用的javascript api等，进行一个汇总~文档持续更新中。。。
+
+前提：有些功能可能浏览器还不支持，需要用babel进行转换，具体的babel环境搭建，请自行Baidu或google。  很多框架的脚手架生成的helloworld项目是已经搭好的环境，比如react或者vue，所以使用脚手架的童鞋大可放心使用。
+
+扩展运算符：三个点 …合并数组1234let arr1 =......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/13/Javascript常用和巧用整合/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
