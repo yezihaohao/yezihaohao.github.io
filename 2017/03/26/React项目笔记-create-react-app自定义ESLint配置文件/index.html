@@ -3,22 +3,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>imgs | 前端博客</title>
+  <title>react项目笔记之create-react-app自定义eslint配置文件 | 前端博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="reacteslint" />
   
   
   
-  <meta name="description" content="学习总结 思考感悟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="imgs">
-<meta property="og:url" content="https://yezihaohao.github.io/imgs/index.html">
+  
+  <meta name="description" content="前言
+了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料    若有问题请指出或加群264591039与我讨论。
+
+初始化项目使用create-react-app 创建项目（此过程不做详解），然后运行npm run eject使其暴露webpack等配置文件
+自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-eslin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React项目笔记之create-react-app自定义ESLint配置文件">
+<meta property="og:url" content="https://yezihaohao.github.io/2017/03/26/React项目笔记-create-react-app自定义ESLint配置文件/index.html">
 <meta property="og:site_name" content="前端博客">
-<meta property="og:description" content="学习总结 思考感悟">
-<meta property="og:updated_time" content="2017-02-11T04:04:59.669Z">
+<meta property="og:description" content="前言
+了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料    若有问题请指出或加群264591039与我讨论。
+
+初始化项目使用create-react-app 创建项目（此过程不做详解），然后运行npm run eject使其暴露webpack等配置文件
+自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-eslin">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/react_1.png">
+<meta property="og:updated_time" content="2017-03-27T15:52:38.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="imgs">
-<meta name="twitter:description" content="学习总结 思考感悟">
+<meta name="twitter:title" content="React项目笔记之create-react-app自定义ESLint配置文件">
+<meta name="twitter:description" content="前言
+了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料    若有问题请指出或加群264591039与我讨论。
+
+初始化项目使用create-react-app 创建项目（此过程不做详解），然后运行npm run eject使其暴露webpack等配置文件
+自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-eslin">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/react_1.png">
   
     <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">
   
@@ -50,8 +66,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -76,7 +90,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
               </a>
             
@@ -145,7 +159,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="page-undefined"  class="article article-type-page" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-React项目笔记-create-react-app自定义ESLint配置文件" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -153,7 +167,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      imgs
+      React项目笔记之create-react-app自定义ESLint配置文件
     </h1>
   
 
@@ -161,21 +175,37 @@
     
     <div class="article-meta">
       
-	<a href="/imgs/index.html" class="article-date">
-	  <time datetime="2017-02-11T04:04:59.000Z" itemprop="datePublished">2017-02-11</time>
+	<a href="/2017/03/26/React项目笔记-create-react-app自定义ESLint配置文件/" class="article-date">
+	  <time datetime="2017-03-26T15:31:36.000Z" itemprop="datePublished">2017-03-26</time>
 	</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>了解eslint基础用法，若想更进一步了解其，请查阅<a href="http://eslint.org/" target="_blank" rel="external">官网</a>以及相关资料<br>    若有问题请指出或加群264591039与我讨论。</p>
+</blockquote>
+<h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><p>使用create-react-app 创建项目（此过程不做详解），然后运行<code>npm run eject</code>使其暴露webpack等配置文件</p>
+<h3 id="自定义eslint"><a href="#自定义eslint" class="headerlink" title="自定义eslint"></a>自定义eslint</h3><p>上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-eslint操作<br>是非常不错的选择（关于js其他的eslint操作，请参见官网，本文主要针对jsx限制规范配置）。</p>
+<ul>
+<li>在项目根目录下添加.eslintrc文件</li>
+<li>在根目录找到config文件夹，并找到文件夹下的webpack.config.dev.js文件</li>
+<li>webpack.config.dev.js文件添加如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">enforce: <span class="string">'pre'</span>,</div><div class="line"><span class="attr">use</span>: [&#123;</div><div class="line">  <span class="comment">// @remove-on-eject-begin</span></div><div class="line">  <span class="comment">// Point ESLint to our predefined config.</span></div><div class="line">  options: &#123;</div><div class="line">    <span class="comment">//configFile: path.join(__dirname, '../.eslintrc'),</span></div><div class="line">    useEslintrc: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// @remove-on-eject-end</span></div><div class="line">  loader: <span class="string">'eslint-loader'</span></div><div class="line">&#125;],</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/react_1.png" alt="截图"></p>
+<ul>
+<li>运行<code>npm start</code>,此时，你编写的jsx文件都是经过.eslintrc的配置限制</li>
+</ul>
+<h3 id="eslintrc文件基本规范配置"><a href="#eslintrc文件基本规范配置" class="headerlink" title=".eslintrc文件基本规范配置"></a>.eslintrc文件基本规范配置</h3><p><code>ps:</code>  配置的value对应的值： 0 : off   1 : warning   2 : error<br>不满足以下的规范设置的，编译代码时将有黄色提示<br>具体配置规则可参见<a href="https://github.com/airbnb/javascript/tree/master/react" target="_blank" rel="external">Github</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"extends"</span>: <span class="string">"react-app"</span>,</div><div class="line">  <span class="string">"rules"</span>: &#123;</div><div class="line">    <span class="string">"no-multi-spaces"</span>: 1,</div><div class="line">    <span class="string">"react/jsx-space-before-closing"</span>: 1,        // 总是在自动关闭的标签前加一个空格，正常情况下也不需要换行</div><div class="line">    <span class="string">"jsx-quotes"</span>: 1,</div><div class="line">    <span class="string">"react/jsx-closing-bracket-location"</span>: 1,    // 遵循JSX语法缩进/格式</div><div class="line">    <span class="string">"react/jsx-boolean-value"</span>: 1,               // 如果属性值为 <span class="literal">true</span>, 可以直接省略</div><div class="line">    <span class="string">"react/no-string-refs"</span>: 1,      // 总是在Refs里使用回调函数</div><div class="line">    <span class="string">"react/self-closing-comp"</span>: 1,    // 对于没有子元素的标签来说总是自己关闭标签</div><div class="line">    <span class="string">"react/jsx-no-bind"</span>: 1,          // 当在 render() 里使用事件处理方法时，提前在构造函数里把 this 绑定上去</div><div class="line">    <span class="string">"react/sort-comp"</span>: 1,            // 按照具体规范的React.createClass 的生命周期函数书写代码</div><div class="line">    <span class="string">"react/jsx-pascal-case"</span>: 1        // React模块名使用帕斯卡命名，实例使用骆驼式命名</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
       
         
-<a data-url="https://yezihaohao.github.io/imgs/index.html" data-id="cj0samakx000afkt8nitl6n8i" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+<a data-url="https://yezihaohao.github.io/2017/03/26/React项目笔记-create-react-app自定义ESLint配置文件/" data-id="cj0samail0001fkt8hrvyvcc8" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
 <script>window._bd_share_config={
 	"common": {"bdSnsKey":{},
 		"bdText":"",
@@ -190,7 +220,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/imgs/index.html" data-title="imgs" data-url="https://yezihaohao.github.io/imgs/index.html"></div>
+	 <div class="ds-thread" data-thread-key="/2017/03/26/React项目笔记-create-react-app自定义ESLint配置文件/" data-title="React项目笔记之create-react-app自定义ESLint配置文件" data-url="https://yezihaohao.github.io/2017/03/26/React项目笔记-create-react-app自定义ESLint配置文件/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -211,14 +241,35 @@
 
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/">eslint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/13/Javascript项目笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Javascript项目笔记</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
 <!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化项目"><span class="toc-number">2.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义eslint"><span class="toc-number">3.</span> <span class="toc-text">自定义eslint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eslintrc文件基本规范配置"><span class="toc-number">4.</span> <span class="toc-text">.eslintrc文件基本规范配置</span></a></li></ol>
+    
+    </div>
+  </aside>
 </section>
         
       </div>
@@ -310,6 +361,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 
