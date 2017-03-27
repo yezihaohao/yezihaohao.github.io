@@ -12,28 +12,28 @@
   
   
   <meta name="description" content="前言
-了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料    若有问题请指出或加群264591039与我讨论。
+了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料(中文网)    若有问题请指出或加群264591039与我讨论。
 
 初始化项目使用create-react-app 创建项目（此过程不做详解），然后运行npm run eject使其暴露webpack等配置文件
-自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-eslin">
+自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React项目笔记之create-react-app自定义ESLint配置文件">
 <meta property="og:url" content="https://yezihaohao.github.io/2017/03/26/React项目笔记-create-react-app自定义ESLint配置文件/index.html">
 <meta property="og:site_name" content="前端博客">
 <meta property="og:description" content="前言
-了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料    若有问题请指出或加群264591039与我讨论。
+了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料(中文网)    若有问题请指出或加群264591039与我讨论。
 
 初始化项目使用create-react-app 创建项目（此过程不做详解），然后运行npm run eject使其暴露webpack等配置文件
-自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-eslin">
+自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/react_1.png">
-<meta property="og:updated_time" content="2017-03-27T15:52:38.996Z">
+<meta property="og:updated_time" content="2017-03-27T15:56:09.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React项目笔记之create-react-app自定义ESLint配置文件">
 <meta name="twitter:description" content="前言
-了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料    若有问题请指出或加群264591039与我讨论。
+了解eslint基础用法，若想更进一步了解其，请查阅官网以及相关资料(中文网)    若有问题请指出或加群264591039与我讨论。
 
 初始化项目使用create-react-app 创建项目（此过程不做详解），然后运行npm run eject使其暴露webpack等配置文件
-自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-eslin">
+自定义eslint上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/react_1.png">
   
     <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">
@@ -184,12 +184,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>了解eslint基础用法，若想更进一步了解其，请查阅<a href="http://eslint.org/" target="_blank" rel="external">官网</a>以及相关资料<br>    若有问题请指出或加群264591039与我讨论。</p>
+<p>了解eslint基础用法，若想更进一步了解其，请查阅<a href="http://eslint.org/" target="_blank" rel="external">官网</a>以及相关资料(<a href="http://eslint.cn/" target="_blank" rel="external">中文网</a>)<br>    若有问题请指出或加群264591039与我讨论。</p>
 </blockquote>
 <h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><p>使用create-react-app 创建项目（此过程不做详解），然后运行<code>npm run eject</code>使其暴露webpack等配置文件</p>
 <h3 id="自定义eslint"><a href="#自定义eslint" class="headerlink" title="自定义eslint"></a>自定义eslint</h3><p>上述步骤并没有暴露react脚手架封装的eslint操作，为了使得项目统一规范化，添加jsx-eslint操作<br>是非常不错的选择（关于js其他的eslint操作，请参见官网，本文主要针对jsx限制规范配置）。</p>
 <ul>
-<li>在项目根目录下添加.eslintrc文件</li>
+<li>在项目根目录下添加.eslintrc文件<a id="more"></a></li>
 <li>在根目录找到config文件夹，并找到文件夹下的webpack.config.dev.js文件</li>
 <li>webpack.config.dev.js文件添加如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">enforce: <span class="string">'pre'</span>,</div><div class="line"><span class="attr">use</span>: [&#123;</div><div class="line">  <span class="comment">// @remove-on-eject-begin</span></div><div class="line">  <span class="comment">// Point ESLint to our predefined config.</span></div><div class="line">  options: &#123;</div><div class="line">    <span class="comment">//configFile: path.join(__dirname, '../.eslintrc'),</span></div><div class="line">    useEslintrc: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// @remove-on-eject-end</span></div><div class="line">  loader: <span class="string">'eslint-loader'</span></div><div class="line">&#125;],</div></pre></td></tr></table></figure>
 </li>
