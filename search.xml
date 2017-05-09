@@ -95,7 +95,9 @@
 <h3 id="安装运行"><a href="#安装运行" class="headerlink" title="安装运行"></a>安装运行</h3><h5 id="1-下载或克隆项目源码"><a href="#1-下载或克隆项目源码" class="headerlink" title="1.下载或克隆项目源码"></a>1.下载或克隆项目源码</h5><h5 id="2-npm安装相关包文件-国内建议增加淘宝镜像源，不然很慢，你懂的😁"><a href="#2-npm安装相关包文件-国内建议增加淘宝镜像源，不然很慢，你懂的😁" class="headerlink" title="2.npm安装相关包文件(国内建议增加淘宝镜像源，不然很慢，你懂的😁)"></a>2.npm安装相关包文件(国内建议增加淘宝镜像源，不然很慢，你懂的😁)</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i</div></pre></td></tr></table></figure>
 <h5 id="3-启动项目"><a href="#3-启动项目" class="headerlink" title="3.启动项目"></a>3.启动项目</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
 <h5 id="4-打包项目"><a href="#4-打包项目" class="headerlink" title="4.打包项目"></a>4.打包项目</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>该项目会不定时更新，后续时间会添加更多的模块<br>若有问题，可加QQ群264591039与我交流<br>如果对你有帮助，给个star哟~~❤️❤️❤️❤️</p>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>该项目会不定时更新，后续时间会添加更多的模块</p>
+<p>若有问题，可加QQ群264591039与我交流</p>
+<p>如果对你有帮助，给个star哟~~❤️❤️❤️❤️</p>
 ]]></content>
     </entry>
     
