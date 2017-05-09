@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>react+antd后台管理系统解决方案--终极版 | 前端博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="React" />
+  
+  
+  
+  
+  <meta name="description" content="前言
+网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub  启动和打包的时间都稍长，请耐心等待两分钟
+
+
+GitHub地址
+预览地址(还没做响应式，不建议手机预览😕)
+
+依赖模块项目是用create-react-app创建的，主要还是列出新加的功能依赖包
+点击名称可跳转相关网站😄😄
+
+react@15.5.0
+react-router@3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React+AntD后台管理系统解决方案--终极版">
+<meta property="og:url" content="https://yezihaohao.github.io/2017/05/09/React-AntD后台管理系统解决方案-终极版/index.html">
+<meta property="og:site_name" content="前端博客">
+<meta property="og:description" content="前言
+网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub  启动和打包的时间都稍长，请耐心等待两分钟
+
+
+GitHub地址
+预览地址(还没做响应式，不建议手机预览😕)
+
+依赖模块项目是用create-react-app创建的，主要还是列出新加的功能依赖包
+点击名称可跳转相关网站😄😄
+
+react@15.5.0
+react-router@3">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd11.png">
+<meta property="og:updated_time" content="2017-05-09T06:19:50.577Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React+AntD后台管理系统解决方案--终极版">
+<meta name="twitter:description" content="前言
+网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub  启动和打包的时间都稍长，请耐心等待两分钟
+
+
+GitHub地址
+预览地址(还没做响应式，不建议手机预览😕)
+
+依赖模块项目是用create-react-app创建的，主要还是列出新加的功能依赖包
+点击名称可跳转相关网站😄😄
+
+react@15.5.0
+react-router@3">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/share.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-React-AntD后台管理系统解决方案-终极版" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      React+AntD后台管理系统解决方案--终极版
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/05/09/React-AntD后台管理系统解决方案-终极版/" class="article-date">
+	  <time datetime="2017-05-08T16:13:26.000Z" itemprop="datePublished">2017-05-09</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub<br>  启动和打包的时间都稍长，请耐心等待两分钟</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/yezihaohao/react-admin" target="_blank" rel="external">GitHub地址</a></li>
+<li><a href="http://cheng_haohao.oschina.io/reactadmin/#/app/dashboard/index" target="_blank" rel="external">预览地址</a>(还没做响应式，不建议手机预览😕)</li>
+</ul>
+<h3 id="依赖模块"><a href="#依赖模块" class="headerlink" title="依赖模块"></a>依赖模块</h3><p><span style="color: rgb(184,49,47);">项目是用create-react-app创建的，主要还是列出新加的功能依赖包</span></p>
+<p><span style="color: rgb(184,49,47);">点击名称可跳转相关网站😄😄</span></p>
+<ul>
+<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">react@15.5.0</a></li>
+<li><a href="https://react-guide.github.io/react-router-cn/" target="_blank" rel="external">react-router@3.0.2</a>(<span style="color: rgb(243,121,52);">react路由,4.x的差异还是比较大，暂时还是3.x的版本</span>)</li>
+<li><a href="https://ant.design/index-cn" target="_blank" rel="external">antd@2.9.3</a>(<span style="color: rgb(243,121,52);">蚂蚁金服开源的react ui组件框架</span>)</li>
+<li><a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">axios@0.16.1</a>(<span style="color: rgb(243,121,52);">http请求模块，可用于前端任何场景，很强大👍</span>)</li>
+<li><a href="https://github.com/hustcc/echarts-for-react" target="_blank" rel="external">echarts-for-react@1.2.0</a>(<span style="color: rgb(243,121,52);">可视化图表，别人基于react对echarts的封装，足够用了</span>)</li>
+<li><a href="http://recharts.org/#/zh-CN/" target="_blank" rel="external">recharts@0.22.3</a>(<span style="color: rgb(243,121,52);">另一个基于react封装的图表，个人觉得是没有echarts好用</span>)</li>
+<li><a href="https://github.com/rstacruz/nprogress" target="_blank" rel="external">nprogress@0.2.0</a>(<span style="color: rgb(243,121,52);">顶部加载条，蛮好用👍</span>)</li>
+<li><a href="https://github.com/jpuri/react-draft-wysiwyg" target="_blank" rel="external">react-draft-wysiwyg@1.9.6</a>(<span style="color: rgb(243,121,52);">别人基于react的富文本封装，如果找到其他更好的可以替换</span>)</li>
+<li><a href="https://github.com/mzabriskie/react-draggable" target="_blank" rel="external">react-draggable@2.2.4</a>(<span style="color: rgb(243,121,52);">拖拽模块，找了个简单版的</span>)</li>
+<li><a href="https://github.com/sindresorhus/screenfull.js/" target="_blank" rel="external">screenfull@3.2.0</a>(<span style="color: rgb(243,121,52);">全屏插件</span>)</li>
+<li><a href="https://github.com/dimsemenov/photoswipe" target="_blank" rel="external">photoswipe@4.1.2</a>(<span style="color: rgb(243,121,52);">图片弹层查看插件，不依赖jQuery，还是蛮好用👍</span>)</li>
+<li><a href="http://daneden.me/animate" target="_blank" rel="external">animate.css@3.5.1</a>(<span style="color: rgb(243,121,52);">css动画库</span>)</li>
+<li>其他小细节省略</li>
+</ul>
+<h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><p><span style="color: rgb(184,49,47);">备注：项目只引入了ant-design的部分组件，其他的组件antd官网有源码，可以直接复制到项目中使用，后续有时间补上全部组件。</span><br><span style="color: rgb(184,49,47);">项目使用了antd的自定义主题功能–&gt;黑色，若想替换其他颜色，具体操作请查看antd官网</span><br><a id="more"></a></p>
+<ul>
+<li>首页<ul>
+<li>完整布局</li>
+<li>换肤(全局功能，暂时只实现了顶部导航的换肤，后续加上其他模块)</li>
+</ul>
+</li>
+<li>导航菜单<ul>
+<li>顶部导航(菜单伸缩，全屏功能)</li>
+<li>左边菜单(增加滚动条以及适配路由的active操作)</li>
+</ul>
+</li>
+<li>UI模块<ul>
+<li>按钮(antd组件)</li>
+<li>图标(antd组件并增加彩色表情符)</li>
+<li>加载中(antd组件并增加顶部加载条)</li>
+<li>通知提醒框(antd组件)</li>
+<li>标签页(antd组件)</li>
+<li>轮播图(ant动效组件)</li>
+<li>富文本</li>
+<li>拖拽</li>
+<li>画廊</li>
+</ul>
+</li>
+<li>动画<ul>
+<li>基础动画(animate.css所有动画)</li>
+<li>动画案例</li>
+</ul>
+</li>
+<li>表格<ul>
+<li>基础表格(antd组件)</li>
+<li>高级表格(antd组件)</li>
+<li>异步表格(数据来自掘金酱的接口)</li>
+</ul>
+</li>
+<li>表单<ul>
+<li>基础表单(antd组件)</li>
+</ul>
+</li>
+<li>图表<ul>
+<li>echarts图表</li>
+<li>recharts图表</li>
+</ul>
+</li>
+<li>页面<ul>
+<li>登录页面(包括GitHub第三方登录)</li>
+<li>404页面</li>
+</ul>
+</li>
+</ul>
+<h3 id="功能截图"><a href="#功能截图" class="headerlink" title="功能截图"></a>功能截图</h3><h4 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd1.png" alt="截图"></p>
+<h4 id="按钮图标等"><a href="#按钮图标等" class="headerlink" title="按钮图标等"></a>按钮图标等</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd2.png" alt="截图"></p>
+<h4 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd3.png" alt="截图"></p>
+<h4 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd4.png" alt="截图"></p>
+<h4 id="拖拽"><a href="#拖拽" class="headerlink" title="拖拽"></a>拖拽</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd5.png" alt="截图"></p>
+<h4 id="画廊"><a href="#画廊" class="headerlink" title="画廊"></a>画廊</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd6.png" alt="截图"></p>
+<h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd7.png" alt="截图"></p>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd8.png" alt="截图"></p>
+<h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd9.png" alt="截图"></p>
+<h4 id="图表"><a href="#图表" class="headerlink" title="图表"></a>图表</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd10.png" alt="截图"></p>
+<h4 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd11.png" alt="截图"></p>
+<h3 id="代码目录"><a href="#代码目录" class="headerlink" title="代码目录"></a>代码目录</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">+-- build/                                  ---打包的文件目录</div><div class="line">+-- config/                                 ---npm run eject 后的配置文件目录</div><div class="line">+-- node_modules/                           ---npm下载文件目录</div><div class="line">+-- public/                                 </div><div class="line">|   --- index.html							---首页入口html文件</div><div class="line">|   --- npm.json							---echarts测试数据</div><div class="line">|   --- weibo.json							---echarts测试数据</div><div class="line">+-- src/                                    ---核心代码目录</div><div class="line">|   +-- axios                               ---http请求存放目录</div><div class="line">|   |    --- index.js</div><div class="line">|   +-- components                          ---各式各样的组件存放目录</div><div class="line">|   |    +-- animation                      ---动画组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- charts                         ---图表组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- dashboard                      ---首页组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- forms                          ---表单组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- pages                          ---页面组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- tables                         ---表格组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- ui                             ---ui组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    --- BreadcrumbCustom.jsx           ---面包屑组件</div><div class="line">|   |    --- HeaderCustom.jsx               ---顶部导航组件</div><div class="line">|   |    --- Page.jsx                       ---页面容器</div><div class="line">|   |    --- SiderCustom.jsx                ---左边菜单组件</div><div class="line">--- .env                                    ---启动项目自定义端口配置文件</div><div class="line">--- .eslintrc                               ---自定义eslint配置文件，包括增加的react jsx语法限制</div><div class="line">--- package.json</div></pre></td></tr></table></figure>
+<h3 id="安装运行"><a href="#安装运行" class="headerlink" title="安装运行"></a>安装运行</h3><h5 id="1-下载或克隆项目源码"><a href="#1-下载或克隆项目源码" class="headerlink" title="1.下载或克隆项目源码"></a>1.下载或克隆项目源码</h5><h5 id="2-npm安装相关包文件-国内建议增加淘宝镜像源，不然很慢，你懂的😁"><a href="#2-npm安装相关包文件-国内建议增加淘宝镜像源，不然很慢，你懂的😁" class="headerlink" title="2.npm安装相关包文件(国内建议增加淘宝镜像源，不然很慢，你懂的😁)"></a>2.npm安装相关包文件(国内建议增加淘宝镜像源，不然很慢，你懂的😁)</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i</div></pre></td></tr></table></figure>
+<h5 id="3-启动项目"><a href="#3-启动项目" class="headerlink" title="3.启动项目"></a>3.启动项目</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
+<h5 id="4-打包项目"><a href="#4-打包项目" class="headerlink" title="4.打包项目"></a>4.打包项目</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>该项目会不定时更新，后续时间会添加更多的模块<br>若有问题，可加QQ群264591039与我交流<br>如果对你有帮助，给个star哟~~❤️❤️❤️❤️</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+<a data-url="https://yezihaohao.github.io/2017/05/09/React-AntD后台管理系统解决方案-终极版/" data-id="cj2gc0t8h000bfgt8n2llev82" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+<script>window._bd_share_config={
+	"common": {"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"1",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"2",
+		"bdSize":"16"
+	},
+	"share":{}};
+	</script>
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/05/09/React-AntD后台管理系统解决方案-终极版/" data-title="React+AntD后台管理系统解决方案--终极版" data-url="https://yezihaohao.github.io/2017/05/09/React-AntD后台管理系统解决方案-终极版/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"chenghao"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/26/React项目笔记-create-react-app自定义ESLint配置文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">React项目笔记之create-react-app自定义ESLint配置文件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖模块"><span class="toc-number">2.</span> <span class="toc-text">依赖模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能模块"><span class="toc-number">3.</span> <span class="toc-text">功能模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能截图"><span class="toc-number">4.</span> <span class="toc-text">功能截图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首页"><span class="toc-number">4.1.</span> <span class="toc-text">首页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#按钮图标等"><span class="toc-number">4.2.</span> <span class="toc-text">按钮图标等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#轮播图"><span class="toc-number">4.3.</span> <span class="toc-text">轮播图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#富文本"><span class="toc-number">4.4.</span> <span class="toc-text">富文本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#拖拽"><span class="toc-number">4.5.</span> <span class="toc-text">拖拽</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#画廊"><span class="toc-number">4.6.</span> <span class="toc-text">画廊</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动画"><span class="toc-number">4.7.</span> <span class="toc-text">动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表格"><span class="toc-number">4.8.</span> <span class="toc-text">表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表单"><span class="toc-number">4.9.</span> <span class="toc-text">表单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图表"><span class="toc-number">4.10.</span> <span class="toc-text">图表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页面"><span class="toc-number">4.11.</span> <span class="toc-text">页面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码目录"><span class="toc-number">5.</span> <span class="toc-text">代码目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装运行"><span class="toc-number">6.</span> <span class="toc-text">安装运行</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-下载或克隆项目源码"><span class="toc-number">6.0.1.</span> <span class="toc-text">1.下载或克隆项目源码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-npm安装相关包文件-国内建议增加淘宝镜像源，不然很慢，你懂的😁"><span class="toc-number">6.0.2.</span> <span class="toc-text">2.npm安装相关包文件(国内建议增加淘宝镜像源，不然很慢，你懂的😁)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-启动项目"><span class="toc-number">6.0.3.</span> <span class="toc-text">3.启动项目</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-打包项目"><span class="toc-number">6.0.4.</span> <span class="toc-text">4.打包项目</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结尾"><span class="toc-number">7.</span> <span class="toc-text">结尾</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 前端博客 All Rights Reserved.</p>
+	      <p id="copyRightCn">chenghao 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            前端博客
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 chenghao All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

@@ -4,6 +4,102 @@
   
     
     <entry>
+      <title><![CDATA[React+AntD后台管理系统解决方案--终极版]]></title>
+      <url>https://yezihaohao.github.io/2017/05/09/React-AntD%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E7%BB%88%E6%9E%81%E7%89%88/</url>
+      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub<br>  启动和打包的时间都稍长，请耐心等待两分钟</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/yezihaohao/react-admin" target="_blank" rel="external">GitHub地址</a></li>
+<li><a href="http://cheng_haohao.oschina.io/reactadmin/#/app/dashboard/index" target="_blank" rel="external">预览地址</a>(还没做响应式，不建议手机预览😕)</li>
+</ul>
+<h3 id="依赖模块"><a href="#依赖模块" class="headerlink" title="依赖模块"></a>依赖模块</h3><p><span style="color: rgb(184,49,47);">项目是用create-react-app创建的，主要还是列出新加的功能依赖包</span></p>
+<p><span style="color: rgb(184,49,47);">点击名称可跳转相关网站😄😄</span></p>
+<ul>
+<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">react@15.5.0</a></li>
+<li><a href="https://react-guide.github.io/react-router-cn/" target="_blank" rel="external">react-router@3.0.2</a>(<span style="color: rgb(243,121,52);">react路由,4.x的差异还是比较大，暂时还是3.x的版本</span>)</li>
+<li><a href="https://ant.design/index-cn" target="_blank" rel="external">antd@2.9.3</a>(<span style="color: rgb(243,121,52);">蚂蚁金服开源的react ui组件框架</span>)</li>
+<li><a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">axios@0.16.1</a>(<span style="color: rgb(243,121,52);">http请求模块，可用于前端任何场景，很强大👍</span>)</li>
+<li><a href="https://github.com/hustcc/echarts-for-react" target="_blank" rel="external">echarts-for-react@1.2.0</a>(<span style="color: rgb(243,121,52);">可视化图表，别人基于react对echarts的封装，足够用了</span>)</li>
+<li><a href="http://recharts.org/#/zh-CN/" target="_blank" rel="external">recharts@0.22.3</a>(<span style="color: rgb(243,121,52);">另一个基于react封装的图表，个人觉得是没有echarts好用</span>)</li>
+<li><a href="https://github.com/rstacruz/nprogress" target="_blank" rel="external">nprogress@0.2.0</a>(<span style="color: rgb(243,121,52);">顶部加载条，蛮好用👍</span>)</li>
+<li><a href="https://github.com/jpuri/react-draft-wysiwyg" target="_blank" rel="external">react-draft-wysiwyg@1.9.6</a>(<span style="color: rgb(243,121,52);">别人基于react的富文本封装，如果找到其他更好的可以替换</span>)</li>
+<li><a href="https://github.com/mzabriskie/react-draggable" target="_blank" rel="external">react-draggable@2.2.4</a>(<span style="color: rgb(243,121,52);">拖拽模块，找了个简单版的</span>)</li>
+<li><a href="https://github.com/sindresorhus/screenfull.js/" target="_blank" rel="external">screenfull@3.2.0</a>(<span style="color: rgb(243,121,52);">全屏插件</span>)</li>
+<li><a href="https://github.com/dimsemenov/photoswipe" target="_blank" rel="external">photoswipe@4.1.2</a>(<span style="color: rgb(243,121,52);">图片弹层查看插件，不依赖jQuery，还是蛮好用👍</span>)</li>
+<li><a href="http://daneden.me/animate" target="_blank" rel="external">animate.css@3.5.1</a>(<span style="color: rgb(243,121,52);">css动画库</span>)</li>
+<li>其他小细节省略</li>
+</ul>
+<h3 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h3><p><span style="color: rgb(184,49,47);">备注：项目只引入了ant-design的部分组件，其他的组件antd官网有源码，可以直接复制到项目中使用，后续有时间补上全部组件。</span><br><span style="color: rgb(184,49,47);">项目使用了antd的自定义主题功能–&gt;黑色，若想替换其他颜色，具体操作请查看antd官网</span><br><a id="more"></a></p>
+<ul>
+<li>首页<ul>
+<li>完整布局</li>
+<li>换肤(全局功能，暂时只实现了顶部导航的换肤，后续加上其他模块)</li>
+</ul>
+</li>
+<li>导航菜单<ul>
+<li>顶部导航(菜单伸缩，全屏功能)</li>
+<li>左边菜单(增加滚动条以及适配路由的active操作)</li>
+</ul>
+</li>
+<li>UI模块<ul>
+<li>按钮(antd组件)</li>
+<li>图标(antd组件并增加彩色表情符)</li>
+<li>加载中(antd组件并增加顶部加载条)</li>
+<li>通知提醒框(antd组件)</li>
+<li>标签页(antd组件)</li>
+<li>轮播图(ant动效组件)</li>
+<li>富文本</li>
+<li>拖拽</li>
+<li>画廊</li>
+</ul>
+</li>
+<li>动画<ul>
+<li>基础动画(animate.css所有动画)</li>
+<li>动画案例</li>
+</ul>
+</li>
+<li>表格<ul>
+<li>基础表格(antd组件)</li>
+<li>高级表格(antd组件)</li>
+<li>异步表格(数据来自掘金酱的接口)</li>
+</ul>
+</li>
+<li>表单<ul>
+<li>基础表单(antd组件)</li>
+</ul>
+</li>
+<li>图表<ul>
+<li>echarts图表</li>
+<li>recharts图表</li>
+</ul>
+</li>
+<li>页面<ul>
+<li>登录页面(包括GitHub第三方登录)</li>
+<li>404页面</li>
+</ul>
+</li>
+</ul>
+<h3 id="功能截图"><a href="#功能截图" class="headerlink" title="功能截图"></a>功能截图</h3><h4 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd1.png" alt="截图"></p>
+<h4 id="按钮图标等"><a href="#按钮图标等" class="headerlink" title="按钮图标等"></a>按钮图标等</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd2.png" alt="截图"></p>
+<h4 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd3.png" alt="截图"></p>
+<h4 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd4.png" alt="截图"></p>
+<h4 id="拖拽"><a href="#拖拽" class="headerlink" title="拖拽"></a>拖拽</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd5.png" alt="截图"></p>
+<h4 id="画廊"><a href="#画廊" class="headerlink" title="画廊"></a>画廊</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd6.png" alt="截图"></p>
+<h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd7.png" alt="截图"></p>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd8.png" alt="截图"></p>
+<h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd9.png" alt="截图"></p>
+<h4 id="图表"><a href="#图表" class="headerlink" title="图表"></a>图表</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd10.png" alt="截图"></p>
+<h4 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd11.png" alt="截图"></p>
+<h3 id="代码目录"><a href="#代码目录" class="headerlink" title="代码目录"></a>代码目录</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">+-- build/                                  ---打包的文件目录</div><div class="line">+-- config/                                 ---npm run eject 后的配置文件目录</div><div class="line">+-- node_modules/                           ---npm下载文件目录</div><div class="line">+-- public/                                 </div><div class="line">|   --- index.html							---首页入口html文件</div><div class="line">|   --- npm.json							---echarts测试数据</div><div class="line">|   --- weibo.json							---echarts测试数据</div><div class="line">+-- src/                                    ---核心代码目录</div><div class="line">|   +-- axios                               ---http请求存放目录</div><div class="line">|   |    --- index.js</div><div class="line">|   +-- components                          ---各式各样的组件存放目录</div><div class="line">|   |    +-- animation                      ---动画组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- charts                         ---图表组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- dashboard                      ---首页组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- forms                          ---表单组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- pages                          ---页面组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- tables                         ---表格组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    +-- ui                             ---ui组件</div><div class="line">|   |    |    --- ...   </div><div class="line">|   |    --- BreadcrumbCustom.jsx           ---面包屑组件</div><div class="line">|   |    --- HeaderCustom.jsx               ---顶部导航组件</div><div class="line">|   |    --- Page.jsx                       ---页面容器</div><div class="line">|   |    --- SiderCustom.jsx                ---左边菜单组件</div><div class="line">--- .env                                    ---启动项目自定义端口配置文件</div><div class="line">--- .eslintrc                               ---自定义eslint配置文件，包括增加的react jsx语法限制</div><div class="line">--- package.json</div></pre></td></tr></table></figure>
+<h3 id="安装运行"><a href="#安装运行" class="headerlink" title="安装运行"></a>安装运行</h3><h5 id="1-下载或克隆项目源码"><a href="#1-下载或克隆项目源码" class="headerlink" title="1.下载或克隆项目源码"></a>1.下载或克隆项目源码</h5><h5 id="2-npm安装相关包文件-国内建议增加淘宝镜像源，不然很慢，你懂的😁"><a href="#2-npm安装相关包文件-国内建议增加淘宝镜像源，不然很慢，你懂的😁" class="headerlink" title="2.npm安装相关包文件(国内建议增加淘宝镜像源，不然很慢，你懂的😁)"></a>2.npm安装相关包文件(国内建议增加淘宝镜像源，不然很慢，你懂的😁)</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i</div></pre></td></tr></table></figure>
+<h5 id="3-启动项目"><a href="#3-启动项目" class="headerlink" title="3.启动项目"></a>3.启动项目</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
+<h5 id="4-打包项目"><a href="#4-打包项目" class="headerlink" title="4.打包项目"></a>4.打包项目</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>该项目会不定时更新，后续时间会添加更多的模块<br>若有问题，可加QQ群264591039与我交流<br>如果对你有帮助，给个star哟~~❤️❤️❤️❤️</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[React项目笔记之create-react-app自定义ESLint配置文件]]></title>
       <url>https://yezihaohao.github.io/2017/03/26/React%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0-create-react-app%E8%87%AA%E5%AE%9A%E4%B9%89ESLint%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</url>
       <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
