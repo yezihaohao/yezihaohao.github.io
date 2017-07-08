@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[React+AntD后台管理系统解决方案--终极版]]></title>
       <url>https://yezihaohao.github.io/2017/05/09/React-AntD%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E7%BB%88%E6%9E%81%E7%89%88/</url>
-      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+      <content type="html"><![CDATA[<h3 id="最下方增加版本更新日志😁"><a href="#最下方增加版本更新日志😁" class="headerlink" title="最下方增加版本更新日志😁"></a>最下方增加版本更新日志😁</h3><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
 <p>网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub<br>  启动和打包的时间都稍长，请耐心等待两分钟</p>
 </blockquote>
 <ul>
@@ -98,6 +98,15 @@
 <h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>该项目会不定时更新，后续时间会添加更多的模块</p>
 <p>若有问题，可加QQ群264591039与我交流</p>
 <p>如果对你有帮助，给个star哟~~❤️❤️❤️❤️</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><h4 id="2017-07-08"><a href="#2017-07-08" class="headerlink" title="2017-07-08"></a>2017-07-08</h4><ul>
+<li>依赖包版本升级<ul>
+<li>react@15.6.1</li>
+<li>antd@2.11.2</li>
+<li>webpack@2.6.1</li>
+<li>等等</li>
+</ul>
+</li>
+</ul>
 ]]></content>
     </entry>
     
