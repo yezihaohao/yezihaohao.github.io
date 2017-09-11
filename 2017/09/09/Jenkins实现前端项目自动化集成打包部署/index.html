@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins11.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins10.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins12.png">
-<meta property="og:updated_time" content="2017-09-09T15:36:22.525Z">
+<meta property="og:updated_time" content="2017-09-11T15:29:24.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins实现前端项目自动化集成打包部署">
 <meta name="twitter:description" content="前言
@@ -201,8 +201,8 @@
 <h4 id="3-配置构建触发器"><a href="#3-配置构建触发器" class="headerlink" title="3.配置构建触发器"></a>3.配置构建触发器</h4><p>勾选Poll SCM即可，其他可忽略，默认提交代码到相应的分支触发该任务<br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins7.png" alt="截图"></p>
 <h4 id="4-配置构建"><a href="#4-配置构建" class="headerlink" title="4.配置构建"></a>4.配置构建</h4><p>增加构建步骤选择Execute shell<br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins8.png" alt="截图"></p>
 <h4 id="5-配置构建后操作"><a href="#5-配置构建后操作" class="headerlink" title="5.配置构建后操作"></a>5.配置构建后操作</h4><p>增加构建后操作，选择Send build artifacts over SSH。即上述操作全部完成并自动生产了部署文件，该步骤将部署文件上传到之前的SSH服务器（Linux服务器），并执行你想让他执行的命名，部署多个服务器及平台，选择添加server并完成相应的配置<br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins9.png" alt="截图"><br>配置后再增加构建后操作，选择Editable Email Notification。根据提示配置需要通知的邮箱，其他可默认。然后选择高级设置，配置失败和成功邮件通知。<br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins11.png" alt="截图"></p>
-<h3 id="绑定GitLab-Web-hooks"><a href="#绑定GitLab-Web-hooks" class="headerlink" title="绑定GitLab Web hooks"></a>绑定GitLab Web hooks</h3><p>添加web hook. <a href="http://jenkins-server/gitlab/notify_commit" target="_blank" rel="external">http://jenkins-server/gitlab/notify_commit</a>  需要填上的固定格式的URL地址，把jenkins-server替换成对应的Jenkins访问地址，注意：如果是localhost，需要换成ip地址。<br>添加完之后，点击Test Hook。此时Jenkins界面构建队列出现某个人物正在执行，表示配置成功。<br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins10.png" alt="截图"></p>
-<h3 id="验证提交代码，成功自动打包部署"><a href="#验证提交代码，成功自动打包部署" class="headerlink" title="验证提交代码，成功自动打包部署"></a>验证提交代码，成功自动打包部署</h3><p>提交代码，观察Jenkins界面，出现构建任务，构建完成之后收到右键通知。<br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins12.png" alt="截图"></p>
+<h3 id="绑定GitLab-Web-hooks"><a href="#绑定GitLab-Web-hooks" class="headerlink" title="绑定GitLab Web hooks"></a>绑定GitLab Web hooks</h3><p>添加web hook. <a href="http://jenkins-server/gitlab/notify_commit" target="_blank" rel="external">http://jenkins-server/gitlab/notify_commit</a>  需要填上的固定格式的URL地址，把jenkins-server替换成对应的Jenkins访问地址，注意：如果是localhost，需要换成ip地址。<br>添加完之后，点击Test Hook。此时Jenkins界面构建队列出现某个任务正在执行，表示配置成功。<br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins10.png" alt="截图"></p>
+<h3 id="验证提交代码，成功自动打包部署"><a href="#验证提交代码，成功自动打包部署" class="headerlink" title="验证提交代码，成功自动打包部署"></a>验证提交代码，成功自动打包部署</h3><p>提交代码，观察Jenkins界面，出现构建任务，构建完成之后收到邮件通知。<br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins12.png" alt="截图"></p>
 <blockquote>
 <p>最后，推荐给大家前端交流QQ群：264591039。欢迎来这里和大家一起畅聊大前端的一切~</p>
 </blockquote>
