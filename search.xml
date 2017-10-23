@@ -20,8 +20,8 @@
 <li><a href="https://github.com/facebook/react-native" target="_blank" rel="external">react-native@0.48.2</a></li>
 <li><a href="https://github.com/skv-headless/react-native-scrollable-tab-view" target="_blank" rel="external">react-native-scrollable-tab-view@0.7.4</a>(可滚动切换tab页面组件)</li>
 <li><a href="https://github.com/leecade/react-native-swiper" target="_blank" rel="external">react-native-swiper@1.5.10</a></li>
-<li><a href="https://facebook.github.io/react/" target="_blank" rel="external">react-native-vector-icons@4.3.0</a>(包含很多icon图标)</li>
-<li><a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-video@2.0.0</a>(视频和音频播放器，经调研，最近版的安卓和IOS系统版本可正常使用)</li>
+<li><a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons@4.3.0</a>(包含很多icon图标)</li>
+<li><a href="https://github.com/react-native-community/react-native-video" target="_blank" rel="external">react-native-video@2.0.0</a>(视频和音频播放器，经调研，最近版的安卓和IOS系统版本可正常使用)</li>
 <li><a href="https://github.com/react-community/react-navigation" target="_blank" rel="external">react-navigation@1.0.0-beta.11</a>(推荐使用的路由库)</li>
 <li><a href="https://github.com/reactjs/redux" target="_blank" rel="external">redux@3.7.2</a>(项目中重点用在播放器相关功能上)</li>
 <li>其他细节库省略</li>
