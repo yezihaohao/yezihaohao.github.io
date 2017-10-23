@@ -40,9 +40,9 @@
 <li>其他细节等等</li>
 </ul>
 <h4 id="安装运行"><a href="#安装运行" class="headerlink" title="安装运行"></a>安装运行</h4><blockquote>
-<p>特别鸣谢：<a href="https://github.com/Binaryify/NeteaseCloudMusicApi" target="_blank" rel="external">NeteaseCloudMusicApi</a> 提供全套API。<br>    运行本项目前请先本地（或服务器）运行此API接口项目</p>
+<p>特别鸣谢：<a href="https://github.com/Binaryify/NeteaseCloudMusicApi" target="_blank" rel="external">NeteaseCloudMusicApi</a> 提供全套API。<br>    运行本项目前请先本地（或服务器）运行此API接口项目,替换/scr/api/index.js 下BASE_URL的ip地址</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">0. 开发环境平台版本：Android-6.0  ios-10.3</div><div class="line"></div><div class="line">1. git clone https://github.com/yezihaohao/NeteaseCloudMusic.git</div><div class="line"></div><div class="line">2. yarn</div><div class="line"></div><div class="line">3. react-native link </div><div class="line"></div><div class="line">3. react-native run-ios 或者 react-native run-android</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">0. 开发环境平台版本：Android-6.0  ios-10.3</div><div class="line"></div><div class="line">1. git clone https://github.com/yezihaohao/NeteaseCloudMusic.git</div><div class="line"></div><div class="line">2. yarn or npm install</div><div class="line"></div><div class="line">3. react-native link </div><div class="line"></div><div class="line">3. react-native run-ios 或者 react-native run-android</div></pre></td></tr></table></figure>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>react-native上手不难，熟悉react，看react-native文档，看下开源项目就可以开始开发，就是向下兼容比较差，可能这个版本用的别人的组件下个版本就会有bug。</p>
 <p>一般展示性的界面比较容易，重点熟悉flex布局，注意默认纵向排列。</p>
 <p>动画模块也需要着重了解下，可以提升用户体验。</p>
