@@ -6,7 +6,10 @@
     <entry>
       <title><![CDATA[ReactNative模仿网易云音乐手机客户端，兼容安卓和IOS两个平台]]></title>
       <url>https://yezihaohao.github.io/2017/10/23/ReactNative%E6%A8%A1%E4%BB%BF%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%89%8B%E6%9C%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%8C%E5%85%BC%E5%AE%B9%E5%AE%89%E5%8D%93%E5%92%8CIOS%E4%B8%A4%E4%B8%AA%E5%B9%B3%E5%8F%B0/</url>
-      <content type="html"><![CDATA[<h4 id="React-Native-模仿网易云音乐手机客户端，兼容安卓和IOS两个平台。"><a href="#React-Native-模仿网易云音乐手机客户端，兼容安卓和IOS两个平台。" class="headerlink" title="React Native 模仿网易云音乐手机客户端，兼容安卓和IOS两个平台。"></a>React Native 模仿网易云音乐手机客户端，兼容安卓和IOS两个平台。</h4><p>老规矩，先上图~😄</p>
+      <content type="html"><![CDATA[<h4 id="React-Native-模仿网易云音乐手机客户端，兼容安卓和IOS两个平台。"><a href="#React-Native-模仿网易云音乐手机客户端，兼容安卓和IOS两个平台。" class="headerlink" title="React Native 模仿网易云音乐手机客户端，兼容安卓和IOS两个平台。"></a>React Native 模仿网易云音乐手机客户端，兼容安卓和IOS两个平台。</h4><blockquote>
+<p>GitHub 完整源码地址<a href="https://github.com/yezihaohao/NeteaseCloudMusic" target="_blank" rel="external">https://github.com/yezihaohao/NeteaseCloudMusic</a></p>
+</blockquote>
+<p>老规矩，先上图~😄</p>
 <h4 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/total.gif" alt="全图"></p>
 <h4 id="音乐播放"><a href="#音乐播放" class="headerlink" title="音乐播放"></a>音乐播放</h4><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/player.gif" alt="音乐播放"></p>
 <a id="more"></a>
