@@ -191,80 +191,21 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一个对腾讯web地图简单封装的React组件"><a href="#一个对腾讯web地图简单封装的React组件" class="headerlink" title="一个对腾讯web地图简单封装的React组件"></a>一个对腾讯web地图简单封装的React组件</h4><p><strong>GitHub源码地址：<a href="https://github.com/yezihaohao/react-qmap" target="_blank" rel="external">戳我</a></strong> </p>
-<p><strong>栗子：<a href="https://cheng_haohao.gitee.io/reactqmap/#/dashboard" target="_blank" rel="external">戳我</a></strong></p>
-<p> <strong>栗子源码：<a href="https://github.com/yezihaohao/react-qmap/tree/master/examples/src/components/maps" target="_blank" rel="external">戳我</a></strong>  </p>
+        <h4 id="一个对腾讯web地图简单封装的React组件"><a href="#一个对腾讯web地图简单封装的React组件" class="headerlink" title="一个对腾讯web地图简单封装的React组件"></a>一个对腾讯web地图简单封装的React组件</h4><p><strong>GitHub源码地址：<a href="https://github.com/yezihaohao/react-qmap">戳我</a></strong> </p>
+<p><strong>栗子：<a href="https://cheng_haohao.gitee.io/reactqmap/#/dashboard">戳我</a></strong></p>
+<p> <strong>栗子源码：<a href="https://github.com/yezihaohao/react-qmap/tree/master/examples/src/components/maps">戳我</a></strong>  </p>
 <p> <img src="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/t.gif" alt="demo截图"></p>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn add react-qmap  </div><div class="line"></div><div class="line">or npm install react-qmap</div></pre></td></tr></table></figure>
-<h4 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> ReactQMap <span class="keyword">from</span> <span class="string">'react-qmap'</span>;</div><div class="line"></div><div class="line">&lt;ReactQMap </div><div class="line">    center=&#123;&#123;latitude: 30.53786, longitude: 104.07265&#125;&#125; </div><div class="line">    initialOptions=&#123;&#123;zoomControl: true, mapTypeControl: true&#125;&#125; </div><div class="line">    apiKey="xxxxxx-xxxxx-xxxxx-xxxxxx"</div><div class="line">    style=&#123;&#123;height: 300&#125;&#125;    // 高度和宽度默认占父元素的100%</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
-<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Type</th>
-<th>Optional</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>getMap</td>
-<td>function</td>
-<td>false</td>
-<td></td>
-<td>获取地图的对象和当前容器的map对象,第一个参数是new的当前map对象，第二个参数是全局map对象</td>
-</tr>
-<tr>
-<td>style</td>
-<td>object</td>
-<td>false</td>
-<td></td>
-<td>设置组件的内联样式，默认样式width: ‘100%’, height: ‘100%’</td>
-</tr>
-<tr>
-<td>className</td>
-<td>string</td>
-<td>false</td>
-<td></td>
-<td>设置组件的class</td>
-</tr>
-<tr>
-<td>mySpot</td>
-<td>object</td>
-<td>false</td>
-<td></td>
-<td>设置地图的定位坐标</td>
-</tr>
-<tr>
-<td>initialOptions</td>
-<td>object</td>
-<td>false</td>
-<td>zoom: 14,disableDefaultUI: true, zoomControl: false,mapTypeControl: false,</td>
-<td>初始化地图的参数，简单默认设置了几个，更多的初始化参数请参照<a href="http://lbs.qq.com/javascript_v2/doc/mapoptions.html" target="_blank" rel="external">文档</a></td>
-</tr>
-<tr>
-<td>apiKey</td>
-<td>string</td>
-<td>true</td>
-<td></td>
-<td>设置地图引用的key,为防止限制调用API,建议<a href="http://lbs.qq.com/index.html" target="_blank" rel="external">官网</a>申请自己的key</td>
-</tr>
-<tr>
-<td>center</td>
-<td>object</td>
-<td>true</td>
-<td></td>
-<td>设置地图初始化的中心位置坐标</td>
-</tr>
-</tbody>
-</table>
-<h4 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h4><p>有了初始化的地图，获取到地图对象之后，就可以按照官网提供的资料随心所欲了。</p>
-<p>更多关于API的操作请查看腾讯地图官网（<a href="http://lbs.qq.com/javascript_v2/doc/index.html#g0" target="_blank" rel="external">戳我</a>）</p>
-<p>简单的封装了一块原石，封装还在继续，如果老铁有更好的方式或想法不妨PR走起一波~会给你双击666</p>
-<p>如果有问题可加入前端交流群一起讨论：前端攻城狮②群：592688854</p>
-<h4 id="license"><a href="#license" class="headerlink" title="license"></a>license</h4><p>MIT</p>
+        <!-- 一个对腾讯web地图简单封装的React组件GitHub源码地址：戳我 
+栗子：戳我
+ 栗子源码：戳我  
+ 
+安装123yarn add react-qmap  or npm install react-qmap
 
+基础用法12345678import ReactQMap from 'react-qmap';&lt;ReactQMap     center=&#123;&#123;lati......  -->
+        <p class="article-more-link">
+          <a href="/2018/03/11/腾讯地图React组件-附demo和源码/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
