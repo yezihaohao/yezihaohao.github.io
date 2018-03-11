@@ -167,6 +167,119 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-腾讯地图React组件-附demo和源码"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/03/11/腾讯地图React组件-附demo和源码/">腾讯地图React组件,附demo和源码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/03/11/腾讯地图React组件-附demo和源码/" class="article-date">
+	  <time datetime="2018-03-11T03:27:10.000Z" itemprop="datePublished">2018-03-11</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一个对腾讯web地图简单封装的React组件"><a href="#一个对腾讯web地图简单封装的React组件" class="headerlink" title="一个对腾讯web地图简单封装的React组件"></a>一个对腾讯web地图简单封装的React组件</h4><p><strong>GitHub源码地址：<a href="https://github.com/yezihaohao/react-qmap" target="_blank" rel="external">戳我</a></strong> </p>
+<p><strong>栗子：<a href="https://cheng_haohao.gitee.io/reactqmap/#/dashboard" target="_blank" rel="external">戳我</a></strong></p>
+<p> <strong>栗子源码：<a href="https://github.com/yezihaohao/react-qmap/tree/master/examples/src/components/maps" target="_blank" rel="external">戳我</a></strong>  </p>
+<p> <img src="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/t.gif" alt="demo截图"></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn add react-qmap  </div><div class="line"></div><div class="line">or npm install react-qmap</div></pre></td></tr></table></figure>
+<h4 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> ReactQMap <span class="keyword">from</span> <span class="string">'react-qmap'</span>;</div><div class="line"></div><div class="line">&lt;ReactQMap </div><div class="line">    center=&#123;&#123;latitude: 30.53786, longitude: 104.07265&#125;&#125; </div><div class="line">    initialOptions=&#123;&#123;zoomControl: true, mapTypeControl: true&#125;&#125; </div><div class="line">    apiKey="xxxxxx-xxxxx-xxxxx-xxxxxx"</div><div class="line">    style=&#123;&#123;height: 300&#125;&#125;    // 高度和宽度默认占父元素的100%</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getMap</td>
+<td>function</td>
+<td>false</td>
+<td></td>
+<td>获取地图的对象和当前容器的map对象,第一个参数是new的当前map对象，第二个参数是全局map对象</td>
+</tr>
+<tr>
+<td>style</td>
+<td>object</td>
+<td>false</td>
+<td></td>
+<td>设置组件的内联样式，默认样式width: ‘100%’, height: ‘100%’</td>
+</tr>
+<tr>
+<td>className</td>
+<td>string</td>
+<td>false</td>
+<td></td>
+<td>设置组件的class</td>
+</tr>
+<tr>
+<td>mySpot</td>
+<td>object</td>
+<td>false</td>
+<td></td>
+<td>设置地图的定位坐标</td>
+</tr>
+<tr>
+<td>initialOptions</td>
+<td>object</td>
+<td>false</td>
+<td>zoom: 14,disableDefaultUI: true, zoomControl: false,mapTypeControl: false,</td>
+<td>初始化地图的参数，简单默认设置了几个，更多的初始化参数请参照<a href="http://lbs.qq.com/javascript_v2/doc/mapoptions.html" target="_blank" rel="external">文档</a></td>
+</tr>
+<tr>
+<td>apiKey</td>
+<td>string</td>
+<td>true</td>
+<td></td>
+<td>设置地图引用的key,为防止限制调用API,建议<a href="http://lbs.qq.com/index.html" target="_blank" rel="external">官网</a>申请自己的key</td>
+</tr>
+<tr>
+<td>center</td>
+<td>object</td>
+<td>true</td>
+<td></td>
+<td>设置地图初始化的中心位置坐标</td>
+</tr>
+</tbody>
+</table>
+<h4 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h4><p>有了初始化的地图，获取到地图对象之后，就可以按照官网提供的资料随心所欲了。</p>
+<p>更多关于API的操作请查看腾讯地图官网（<a href="http://lbs.qq.com/javascript_v2/doc/index.html#g0" target="_blank" rel="external">戳我</a>）</p>
+<p>简单的封装了一块原石，封装还在继续，如果老铁有更好的方式或想法不妨PR走起一波~会给你双击666</p>
+<p>如果有问题可加入前端交流群一起讨论：前端攻城狮②群：592688854</p>
+<h4 id="license"><a href="#license" class="headerlink" title="license"></a>license</h4><p>MIT</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/">map</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-ReactNative模仿网易云音乐手机客户端，兼容安卓和IOS两个平台"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -680,60 +793,12 @@ vue 的组件化开发是一个非常不错的机制.’一处开发,多处引�
 <!-- Table of Contents -->
 
   
-    <article id="post-Nodejs爬虫-抓取豆瓣电影网页数据（上）"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
+
+
+  <nav id="page-nav">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/">Nodejs爬虫--抓取豆瓣电影网页数据（上）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/" class="article-date">
-	  <time datetime="2017-02-09T03:54:42.000Z" itemprop="datePublished">2017-02-09</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/爬虫/">爬虫</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前写了一个nodejs的开源爬虫小项目，补上博客详细解析下代码。</p>
-<p><code>PS：</code>共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将抓取的数据存入mongodb数据库。</p>
-<h2 id="我们快速开始吧"><a href="#我们快速开始吧" class="headerlink" title="我们快速开始吧"></a>我们快速开始吧</h2><h3 id="首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package-json"><a href="#首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package-json" class="headerlink" title="首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json"></a>首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json</h3><p>新建spider文件夹，在该文件夹下面初始化package.json<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure></p>
-<h3 id="然后用npm安装相关库文件："><a href="#然后用npm安装相关库文件：" class="headerlink" title="然后用npm安装相关库文件："></a>然后用npm安装相关库文件：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev superagent cheerio eventproxy <span class="keyword">async</span></div></pre></td></tr></table></figure>
-<p>在文件夹下面新建spider.js, 在文件中引入需要用到的nodejs模块如下(具体用法请查询网上相关资料)：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent'</span>),     <span class="comment">//nodejs里面一个非常方便的客户端代理请求模块，支持get,post,put,delete等</span></div><div class="line">    cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>),           <span class="comment">//类似于jQuery的DOM操作模块，可以提取html中想要的信息</span></div><div class="line">    eventproxy = <span class="built_in">require</span>(<span class="string">'eventproxy'</span>),     <span class="comment">//控制异步请求并发，可以监听请求，使得某些请求完毕之后在发送请求</span></div><div class="line">    assert = <span class="built_in">require</span>(<span class="string">'assert'</span>),             <span class="comment">//异常抛出判断模块，assert.equal(err, null);  如果err不为null,则直接抛出异常</span></div><div class="line">    <span class="keyword">async</span> = <span class="built_in">require</span>(<span class="string">'async'</span>);              <span class="comment">//控制请求并发连接数</span></div></pre></td></tr></table></figure></p>
-        <!-- 之前写了一个nodejs的开源爬虫小项目，补上博客详细解析下代码。
-PS：共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将抓取的数据存入mongodb数据库。
-我们快速开始吧首先，安装nodejs，然后用npm工具初始化资源管理配置文件：package.json新建spider文件夹，在该文件夹下面初始化package.json1npm init
-然后用npm安装相关库文件：1npm in......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/09/Nodejs爬虫-抓取豆瓣电影网页数据（上）/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 
 </section>
         
@@ -747,7 +812,7 @@ PS：共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将
   <div class="container">
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 前端博客 All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 前端博客 All Rights Reserved.</p>
 	      <p id="copyRightCn">chenghao 保留所有权利</p>
 	</div>
   </div>
@@ -881,7 +946,7 @@ PS：共有上下两篇，第一篇讲从网站上抓取数据，第二篇讲将
             前端博客
           </div>
           <div class="panel-body">
-            Copyright © 2017 chenghao All Rights Reserved.
+            Copyright © 2018 chenghao All Rights Reserved.
           </div>
         </div>
       </div>
