@@ -81,6 +81,16 @@
 <p>如果有问题可加入前端交流群一起讨论：前端攻城狮②群：592688854</p>
 <h4 id="license"><a href="#license" class="headerlink" title="license"></a>license</h4><p>MIT</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> react </tag>
+            
+            <tag> map </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -136,6 +146,16 @@
 <p>该项目会持续更新~所有使用数据仅供学习交流，并无它意。若有疑问，可加前端QQ群与我交流：264591039</p>
 </blockquote>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> React </tag>
+            
+            <tag> ReactNative </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -163,6 +183,14 @@
 <p>最后，推荐给大家前端交流QQ群：264591039。欢迎来这里和大家一起畅聊大前端的一切~</p>
 </blockquote>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 前端工程化 </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -301,6 +329,14 @@
 <p>若有问题，可加QQ群264591039与我交流</p>
 <p>如果对你有帮助，给个star哟~~❤️❤️❤️❤️</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -323,6 +359,16 @@
 </ul>
 <h3 id="eslintrc文件基本规范配置"><a href="#eslintrc文件基本规范配置" class="headerlink" title=".eslintrc文件基本规范配置"></a>.eslintrc文件基本规范配置</h3><p><code>ps:</code>  配置的value对应的值： 0 : off   1 : warning   2 : error<br>不满足以下的规范设置的，编译代码时将有黄色提示<br>具体配置规则可参见<a href="https://github.com/airbnb/javascript/tree/master/react" target="_blank" rel="external">Github</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"extends"</span>: <span class="string">"react-app"</span>,</div><div class="line">  <span class="string">"rules"</span>: &#123;</div><div class="line">    <span class="string">"no-multi-spaces"</span>: 1,</div><div class="line">    <span class="string">"react/jsx-space-before-closing"</span>: 1,        // 总是在自动关闭的标签前加一个空格，正常情况下也不需要换行</div><div class="line">    <span class="string">"jsx-quotes"</span>: 1,</div><div class="line">    <span class="string">"react/jsx-closing-bracket-location"</span>: 1,    // 遵循JSX语法缩进/格式</div><div class="line">    <span class="string">"react/jsx-boolean-value"</span>: 1,               // 如果属性值为 <span class="literal">true</span>, 可以直接省略</div><div class="line">    <span class="string">"react/no-string-refs"</span>: 1,      // 总是在Refs里使用回调函数</div><div class="line">    <span class="string">"react/self-closing-comp"</span>: 1,    // 对于没有子元素的标签来说总是自己关闭标签</div><div class="line">    <span class="string">"react/jsx-no-bind"</span>: 1,          // 当在 render() 里使用事件处理方法时，提前在构造函数里把 this 绑定上去</div><div class="line">    <span class="string">"react/sort-comp"</span>: 1,            // 按照具体规范的React.createClass 的生命周期函数书写代码</div><div class="line">    <span class="string">"react/jsx-pascal-case"</span>: 1        // React模块名使用帕斯卡命名，实例使用骆驼式命名</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> react </tag>
+            
+            <tag> eslint </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -338,6 +384,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;a: 1&#125;;</div><div class="line">&#123;...obj, b: 2&#125;;     // 返回一个新的对象，&#123;a: 1, b: 2&#125;, obj对象不变</div><div class="line">// 等价于下面的用法</div><div class="line">Object.assign(&#123;&#125;, obj, &#123;b: 2&#125;);     // 返回一个新的对象，&#123;a: 1, b: 2&#125;,  obj对象不变</div><div class="line">// 另外Object.assign 还有一个用法</div><div class="line">Object.assign(obj, &#123;b: 2&#125;);      // 返回obj对象并且新增加了b属性：&#123;a: 1, b: 2&#125;  obj对象改变</div><div class="line">// 由于使用的chrome浏览器还不支持第一种用法，只能演示Object.assign。项目中使用babel转换</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo3.gif" alt="截图"></p>
 ]]></content>
+      
+        
     </entry>
     
     <entry>
@@ -363,6 +411,22 @@
 <h3 id="运行截图"><a href="#运行截图" class="headerlink" title="运行截图"></a>运行截图</h3><p>完整示例代码见<a href="https://github.com/yezihaohao/notification" target="_blank" rel="external">GitHub</a></p>
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/TEST.gif" alt="截图"></p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 消息推送 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Nodejs </tag>
+            
+            <tag> Socket.io </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -382,6 +446,14 @@
 <p>获取服务端数据之后，在template中创建组件标签，并将serverData发送给子组件G2Line<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--同步设置id传送给子组件--&gt;</div><div class="line">&lt;g2-line :charData=<span class="string">"serverData"</span> :id=<span class="string">"'c1'"</span> id=<span class="string">"c1"</span>&gt;&lt;/g2-line&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="刷新界面，成功看到页面图表的渲染"><a href="#刷新界面，成功看到页面图表的渲染" class="headerlink" title="刷新界面，成功看到页面图表的渲染"></a>刷新界面，成功看到页面图表的渲染</h3><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/g2%E6%88%AA%E5%9B%BE.gif" alt="截图"><br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/g2截图2.gif" alt="截图"></p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> Vuejs </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -399,6 +471,22 @@
 <h3 id="运行spider-js，并查看数据库中的数据"><a href="#运行spider-js，并查看数据库中的数据" class="headerlink" title="运行spider.js，并查看数据库中的数据"></a>运行spider.js，并查看数据库中的数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node spider.js</div><div class="line">//用上述提到的可视化工具查看数据库是否成功有数据入库</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/QQ%E6%88%AA%E5%9B%BE20170211120738.png" alt="数据库截图"></p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 爬虫 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+            <tag> Nodejs </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -407,6 +495,20 @@
       <content type="html"><![CDATA[<h2 id="项目中常用正则表达式使用整合大全"><a href="#项目中常用正则表达式使用整合大全" class="headerlink" title="项目中常用正则表达式使用整合大全"></a>项目中常用正则表达式使用整合大全</h2><h3 id="提取网页标签内容"><a href="#提取网页标签内容" class="headerlink" title="提取网页标签内容"></a>提取网页标签内容</h3><h4 id="一-单个标签提取"><a href="#一-单个标签提取" class="headerlink" title="一.单个标签提取"></a>一.单个标签提取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> str = `&lt;a class=<span class="string">"menu"</span>&gt;GitHub&lt;/a&gt;`;</div><div class="line"></div><div class="line"><span class="built_in">let</span> content = str.match(/&lt;a class=<span class="string">"menu"</span>&gt;([\s\S]+)&lt;\/a&gt;/)[1];</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="不定时更新中…"><a href="#不定时更新中…" class="headerlink" title="不定时更新中…"></a>不定时更新中…</h2>]]></content>
+      
+        <categories>
+            
+            <category> 正则表达式 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -421,6 +523,22 @@
 <h3 id="用superagent请求豆瓣的某个接口，并把所有的页面链接放到一个数组里面，用eventproxy控制监听该请求结束之后才开始请求相应的详情页面。"><a href="#用superagent请求豆瓣的某个接口，并把所有的页面链接放到一个数组里面，用eventproxy控制监听该请求结束之后才开始请求相应的详情页面。" class="headerlink" title="用superagent请求豆瓣的某个接口，并把所有的页面链接放到一个数组里面，用eventproxy控制监听该请求结束之后才开始请求相应的详情页面。"></a>用superagent请求豆瓣的某个接口，并把所有的页面链接放到一个数组里面，用eventproxy控制监听该请求结束之后才开始请求相应的详情页面。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">superagent.get(URL)</div><div class="line">    .end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> _pageUrls = [];</div><div class="line">        res.body.forEach(<span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</div><div class="line">           _pageUrls.push(val.url);</div><div class="line">        &#125;);</div><div class="line">        ep.emit(<span class="string">'pageUrls'</span>, _pageUrls);   <span class="comment">//监听相关实例，完成之后告诉pageUrls</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
 <h3 id="监听事件完成之后，执行请求相应的豆瓣电影详情页面-并用async控制请求的并发量，可以降低请求的频率和速度"><a href="#监听事件完成之后，执行请求相应的豆瓣电影详情页面-并用async控制请求的并发量，可以降低请求的频率和速度" class="headerlink" title="监听事件完成之后，执行请求相应的豆瓣电影详情页面.并用async控制请求的并发量，可以降低请求的频率和速度"></a>监听事件完成之后，执行请求相应的豆瓣电影详情页面.并用async控制请求的并发量，可以降低请求的频率和速度</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> ep = eventproxy.create(<span class="string">'pageUrls'</span>, (pageUrls) =&gt; &#123;      <span class="comment">//创建一个监听实例</span></div><div class="line">    <span class="keyword">let</span> _http = <span class="function">(<span class="params">url, callback</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> _delay = <span class="built_in">parseInt</span>((<span class="built_in">Math</span>.random() * <span class="number">30000000</span>) % <span class="number">1000</span>, <span class="number">10</span>);   <span class="comment">//随机延时请求</span></div><div class="line">        superagent.get(url)</div><div class="line">            .end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">                <span class="keyword">var</span> $ = cheerio.load(res.text);     <span class="comment">//用cheerio获取整个页面DOM对象</span></div><div class="line">                <span class="keyword">var</span> _data = &#123;<span class="attr">title</span>:<span class="string">''</span>, <span class="attr">type</span>: <span class="string">''</span>, <span class="attr">directories</span>: <span class="string">''</span>, <span class="attr">scriptwriter</span>: <span class="string">''</span>, <span class="attr">actors</span>: <span class="string">''</span>&#125;;</div><div class="line">                _data.title = $(<span class="string">'#content h1 span'</span>).text();</div><div class="line">                _data.directories = $(<span class="string">'#info .attrs'</span>).eq(<span class="number">0</span>).text();</div><div class="line">                _data.scriptwriter = $(<span class="string">'#info .attrs'</span>).eq(<span class="number">1</span>).text();</div><div class="line">                _data.actors = $(<span class="string">'#info .attrs'</span>).eq(<span class="number">2</span>).text();</div><div class="line">                $(<span class="string">'span[property="v:genre"]'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</div><div class="line">                    _data.type += ($(<span class="keyword">this</span>).text() + (index == $(<span class="string">'span[property="v:genre"]'</span>).length - <span class="number">1</span> ? <span class="string">''</span> : <span class="string">'、'</span>));</div><div class="line">                &#125;);</div><div class="line">                <span class="built_in">console</span>.log(_data);</div><div class="line">            &#125;);</div><div class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            callback(<span class="literal">null</span>, url);</div><div class="line">        &#125;, _delay);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">async</span>.mapLimit(pageUrls, <span class="number">3</span>, (url, callback) =&gt; &#123;  <span class="comment">//用async 的 mapLimit(arr, limit, iterator, callback) 接口控制请求并发量为3</span></div><div class="line">        _http(url, callback);</div><div class="line">    &#125;, (err, res) =&gt; &#123;</div><div class="line">        assert.equal(err, <span class="literal">null</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h2 id="本章节结束，未完待续…下期是怎么将抓取的数据存入mongodb数据库！"><a href="#本章节结束，未完待续…下期是怎么将抓取的数据存入mongodb数据库！" class="headerlink" title="本章节结束，未完待续…下期是怎么将抓取的数据存入mongodb数据库！"></a>本章节结束，未完待续…下期是怎么将抓取的数据存入mongodb数据库！</h2>]]></content>
+      
+        <categories>
+            
+            <category> 爬虫 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+            <tag> Nodejs </tag>
+            
+        </tags>
+        
     </entry>
     
   
