@@ -4,15 +4,37 @@
   
     
     <entry>
+      <title><![CDATA[H5手机端开发问题汇总及解决方案]]></title>
+      <url>https://yezihaohao.github.io/2018/03/30/H5%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>少侠，请留步，相见必是缘分，赠与你一部《踏坑秘籍》</p>
+</blockquote>
+<h3 id="扎马步"><a href="#扎马步" class="headerlink" title="扎马步"></a>扎马步</h3><h4 id="踏坑第一式"><a href="#踏坑第一式" class="headerlink" title="踏坑第一式"></a>踏坑第一式</h4><p><strong>ios竖屏拍照上传，图片被旋转问题</strong></p>
+<p><strong>解决方案</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 几个步骤</span></div><div class="line"><span class="comment">// 1.通过第三方插件exif-js获取到图片的方向</span></div><div class="line"><span class="comment">// 2.new一个FileReader对象，加载读取上传的图片</span></div><div class="line"><span class="comment">// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收</span></div><div class="line"><span class="comment">// 4.在image的onload函数中，利用步骤1中获取到的方向orientation，通过canvas旋转校正，重新绘制一张新图</span></div><div class="line"><span class="comment">// 注意iPhone有3个拍照方向需要处理，横屏拍摄，home键在左侧，竖屏拍摄，home建上下</span></div><div class="line"><span class="comment">// 5.将绘制的新图转成Blob对象，添加到FormData对象中，然后进行校正后的上传操作</span></div><div class="line"><span class="comment">// 代码有点杂，待整理后上传，网上应该是可以找到的</span></div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第二式"><a href="#踏坑第二式" class="headerlink" title="踏坑第二式"></a>踏坑第二式</h4><p><strong>ios：DOM元素固定一边，另一边滚动，滚动很卡的问题</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// (横向滚动用的多些)简单粗暴的办法，样式添加如下属性</div><div class="line">-webkit-overflow-scrolling: touch;</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第三式"><a href="#踏坑第三式" class="headerlink" title="踏坑第三式"></a>踏坑第三式</h4><p><strong>部分手机第三方输入法会将页面网上挤的问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 特定需求页面，比如评论页面，输入框在顶部之类的</span></div><div class="line"><span class="keyword">const</span> interval = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</div><div class="line">&#125;, <span class="number">100</span>)</div><div class="line"><span class="comment">// 注意关闭页面或者销毁组件的时候记得清空定时器</span></div><div class="line">clearInterval(interval);</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第四式"><a href="#踏坑第四式" class="headerlink" title="踏坑第四式"></a>踏坑第四式</h4><p><strong>iPhoneX适配</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 1.viewport meta 标签增加属性viewport-fit=cover</div><div class="line">&lt;meta name="viewport" content="width=device-width, viewport-fit=cover, xxxx"&gt;</div><div class="line">// 2.body元素增加样式</div><div class="line">body &#123;</div><div class="line">  padding-bottom: constant(safe-area-inset-bottom);</div><div class="line">  padding-bottom: env(safe-area-inset-bottom);</div><div class="line">&#125;</div><div class="line">// 3.如有fixed底部的元素，也增加上面样式</div><div class="line">xxx &#123;</div><div class="line">  padding-bottom: constant(safe-area-inset-bottom);</div><div class="line">  padding-bottom: env(safe-area-inset-bottom);</div><div class="line">  background-color: #fff; // 记得添加background-color，不然会出现透明镂空的情况</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第五式"><a href="#踏坑第五式" class="headerlink" title="踏坑第五式"></a>踏坑第五式</h4><p><strong>某些机型不支持video标签的poster属性，特别是安卓</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">用图片元素 <span class="tag">&lt;<span class="name">img</span> /&gt;</span>来代替poster</div><div class="line">播放前显示<span class="tag">&lt;<span class="name">img</span> /&gt;</span>，隐藏 <span class="tag">&lt;<span class="name">video</span> /&gt;</span></div><div class="line">播放后显示<span class="tag">&lt;<span class="name">video</span> /&gt;</span>，隐藏 <span class="tag">&lt;<span class="name">img</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第六式"><a href="#踏坑第六式" class="headerlink" title="踏坑第六式"></a>踏坑第六式</h4><p><strong>CSS透明度颜色设置问题</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Android</span>部分不支持 <span class="selector-tag">hex</span>写法，推荐用<span class="selector-tag">rgba</span>的写法</div><div class="line"><span class="selector-id">#0000009c</span> <span class="selector-tag">--</span>&gt; <span class="selector-tag">rgba</span>(0, 0, 0, 0<span class="selector-class">.61</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第七式"><a href="#踏坑第七式" class="headerlink" title="踏坑第七式"></a>踏坑第七式</h4><p><strong>flex对低版本的ios和Android的支持问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">使用postcss的autoprefixer插件，自动添加浏览器内核前缀，</div><div class="line">并且增加更低浏览器版本的配置，自动添加flex老版本的属性和写法</div><div class="line">autoprefixer(&#123;</div><div class="line">    <span class="attr">browsers</span>: [</div><div class="line">        <span class="string">'iOS &gt;= 6'</span>,     <span class="comment">// 特殊处理支持低版本IOS</span></div><div class="line">        <span class="string">'Safari &gt;= 6'</span>,  <span class="comment">// 特殊处理支持低版本Safari</span></div><div class="line">    ],</div><div class="line">&#125;),</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第八式"><a href="#踏坑第八式" class="headerlink" title="踏坑第八式"></a>踏坑第八式</h4><p><strong>ios 页面回退到长列表出现灰色遮挡问题</strong><br> <img src="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/h501.png" alt="demo截图"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">方案<span class="number">1</span>：对列表数据进行缓存，比如redux之类的用法。</div><div class="line">方案<span class="number">2</span>：回退时，跳到页面顶部。</div><div class="line"><span class="keyword">const</span> timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">1</span>);</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第九式"><a href="#踏坑第九式" class="headerlink" title="踏坑第九式"></a>踏坑第九式</h4><p><strong>ios 日期转换NAN的问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">将日期字符串的格式符号替换成<span class="string">'/'</span>。</div><div class="line">栗子：<span class="string">'yyyy-MM-dd'</span>.replace(<span class="regexp">/-/g</span>, <span class="string">'/'</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第十式（React）"><a href="#踏坑第十式（React）" class="headerlink" title="踏坑第十式（React）"></a>踏坑第十式（React）</h4><p><strong>未知错误异常，导致页面崩溃，空白</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">React <span class="number">16.</span>x 增加了componentDidCatch() 生命周期方法</div><div class="line">捕获全局异常来进行页面的友好提示（具体用法网上有很多资料）</div></pre></td></tr></table></figure></p>
+<h3 id="打完收招"><a href="#打完收招" class="headerlink" title="打完收招"></a>打完收招</h3><p>晋级还需要多多修炼</p>
+<p>前端攻城狮②群：592688854。欢迎感兴趣的各路武林豪杰加入。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[腾讯地图React组件,附demo和源码]]></title>
       <url>https://yezihaohao.github.io/2018/03/11/%E8%85%BE%E8%AE%AF%E5%9C%B0%E5%9B%BEReact%E7%BB%84%E4%BB%B6-%E9%99%84demo%E5%92%8C%E6%BA%90%E7%A0%81/</url>
-      <content type="html"><![CDATA[<h4 id="一个对腾讯web地图简单封装的React组件"><a href="#一个对腾讯web地图简单封装的React组件" class="headerlink" title="一个对腾讯web地图简单封装的React组件"></a>一个对腾讯web地图简单封装的React组件</h4><p><strong>GitHub源码地址：<a href="https://github.com/yezihaohao/react-qmap" target="_blank" rel="noopener">戳我</a></strong> </p>
-<p><strong>栗子：<a href="https://cheng_haohao.gitee.io/reactqmap/#/dashboard" target="_blank" rel="noopener">戳我</a></strong></p>
-<p> <strong>栗子源码：<a href="https://github.com/yezihaohao/react-qmap/tree/master/examples/src/components/maps" target="_blank" rel="noopener">戳我</a></strong>  </p>
+      <content type="html"><![CDATA[<h4 id="一个对腾讯web地图简单封装的React组件"><a href="#一个对腾讯web地图简单封装的React组件" class="headerlink" title="一个对腾讯web地图简单封装的React组件"></a>一个对腾讯web地图简单封装的React组件</h4><p><strong>GitHub源码地址：<a href="https://github.com/yezihaohao/react-qmap" target="_blank" rel="external">戳我</a></strong> </p>
+<p><strong>栗子：<a href="https://cheng_haohao.gitee.io/reactqmap/#/dashboard" target="_blank" rel="external">戳我</a></strong></p>
+<p> <strong>栗子源码：<a href="https://github.com/yezihaohao/react-qmap/tree/master/examples/src/components/maps" target="_blank" rel="external">戳我</a></strong>  </p>
 <p> <img src="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/t.gif" alt="demo截图"></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-qmap  </span><br><span class="line"></span><br><span class="line">or npm install react-qmap</span><br></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn add react-qmap  </div><div class="line"></div><div class="line">or npm install react-qmap</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h4 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ReactQMap <span class="keyword">from</span> <span class="string">'react-qmap'</span>;</span><br><span class="line"></span><br><span class="line">&lt;ReactQMap </span><br><span class="line">    center=&#123;&#123;<span class="attr">latitude</span>: <span class="number">30.53786</span>, <span class="attr">longitude</span>: <span class="number">104.07265</span>&#125;&#125; </span><br><span class="line">    initialOptions=&#123;&#123;<span class="attr">zoomControl</span>: <span class="literal">true</span>, <span class="attr">mapTypeControl</span>: <span class="literal">true</span>&#125;&#125; </span><br><span class="line">    apiKey=<span class="string">"xxxxxx-xxxxx-xxxxx-xxxxxx"</span></span><br><span class="line">    style=&#123;&#123;<span class="attr">height</span>: <span class="number">300</span>&#125;&#125;    <span class="comment">// 高度和宽度默认占父元素的100%</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> ReactQMap <span class="keyword">from</span> <span class="string">'react-qmap'</span>;</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">ReactQMap</span> </span></span></div><div class="line">    <span class="attr">center</span>=<span class="string">&#123;&#123;latitude:</span> <span class="attr">30.53786</span>, <span class="attr">longitude:</span> <span class="attr">104.07265</span>&#125;&#125; </div><div class="line">    <span class="attr">initialOptions</span>=<span class="string">&#123;&#123;zoomControl:</span> <span class="attr">true</span>, <span class="attr">mapTypeControl:</span> <span class="attr">true</span>&#125;&#125; </div><div class="line">    <span class="attr">apiKey</span>=<span class="string">"xxxxxx-xxxxx-xxxxx-xxxxxx"</span></div><div class="line">    <span class="attr">style</span>=<span class="string">&#123;&#123;height:</span> <span class="attr">300</span>&#125;&#125;    // 高度和宽度默认占父元素的<span class="attr">100</span>%</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
 <h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><table>
 <thead>
 <tr>
@@ -57,14 +79,14 @@
 <td>object</td>
 <td>false</td>
 <td>zoom: 14,disableDefaultUI: true, zoomControl: false,mapTypeControl: false,</td>
-<td>初始化地图的参数，简单默认设置了几个，更多的初始化参数请参照<a href="http://lbs.qq.com/javascript_v2/doc/mapoptions.html" target="_blank" rel="noopener">文档</a></td>
+<td>初始化地图的参数，简单默认设置了几个，更多的初始化参数请参照<a href="http://lbs.qq.com/javascript_v2/doc/mapoptions.html" target="_blank" rel="external">文档</a></td>
 </tr>
 <tr>
 <td>apiKey</td>
 <td>string</td>
 <td>true</td>
 <td></td>
-<td>设置地图引用的key,为防止限制调用API,建议<a href="http://lbs.qq.com/index.html" target="_blank" rel="noopener">官网</a>申请自己的key</td>
+<td>设置地图引用的key,为防止限制调用API,建议<a href="http://lbs.qq.com/index.html" target="_blank" rel="external">官网</a>申请自己的key</td>
 </tr>
 <tr>
 <td>center</td>
@@ -76,21 +98,11 @@
 </tbody>
 </table>
 <h4 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h4><p>有了初始化的地图，获取到地图对象之后，就可以按照官网提供的资料随心所欲了。</p>
-<p>更多关于API的操作请查看腾讯地图官网（<a href="http://lbs.qq.com/javascript_v2/doc/index.html#g0" target="_blank" rel="noopener">戳我</a>）</p>
+<p>更多关于API的操作请查看腾讯地图官网（<a href="http://lbs.qq.com/javascript_v2/doc/index.html#g0" target="_blank" rel="external">戳我</a>）</p>
 <p>简单的封装了一块原石，封装还在继续，如果老铁有更好的方式或想法不妨PR走起一波~会给你双击666</p>
 <p>如果有问题可加入前端交流群一起讨论：前端攻城狮②群：592688854</p>
 <h4 id="license"><a href="#license" class="headerlink" title="license"></a>license</h4><p>MIT</p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> react </tag>
-            
-            <tag> map </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -146,16 +158,6 @@
 <p>该项目会持续更新~所有使用数据仅供学习交流，并无它意。若有疑问，可加前端QQ群与我交流：264591039</p>
 </blockquote>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> React </tag>
-            
-            <tag> ReactNative </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -183,14 +185,6 @@
 <p>最后，推荐给大家前端交流QQ群：264591039。欢迎来这里和大家一起畅聊大前端的一切~</p>
 </blockquote>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> 前端工程化 </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -329,14 +323,6 @@
 <p>若有问题，可加QQ群264591039与我交流</p>
 <p>如果对你有帮助，给个star哟~~❤️❤️❤️❤️</p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> React </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -359,16 +345,6 @@
 </ul>
 <h3 id="eslintrc文件基本规范配置"><a href="#eslintrc文件基本规范配置" class="headerlink" title=".eslintrc文件基本规范配置"></a>.eslintrc文件基本规范配置</h3><p><code>ps:</code>  配置的value对应的值： 0 : off   1 : warning   2 : error<br>不满足以下的规范设置的，编译代码时将有黄色提示<br>具体配置规则可参见<a href="https://github.com/airbnb/javascript/tree/master/react" target="_blank" rel="external">Github</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"extends"</span>: <span class="string">"react-app"</span>,</div><div class="line">  <span class="string">"rules"</span>: &#123;</div><div class="line">    <span class="string">"no-multi-spaces"</span>: 1,</div><div class="line">    <span class="string">"react/jsx-space-before-closing"</span>: 1,        // 总是在自动关闭的标签前加一个空格，正常情况下也不需要换行</div><div class="line">    <span class="string">"jsx-quotes"</span>: 1,</div><div class="line">    <span class="string">"react/jsx-closing-bracket-location"</span>: 1,    // 遵循JSX语法缩进/格式</div><div class="line">    <span class="string">"react/jsx-boolean-value"</span>: 1,               // 如果属性值为 <span class="literal">true</span>, 可以直接省略</div><div class="line">    <span class="string">"react/no-string-refs"</span>: 1,      // 总是在Refs里使用回调函数</div><div class="line">    <span class="string">"react/self-closing-comp"</span>: 1,    // 对于没有子元素的标签来说总是自己关闭标签</div><div class="line">    <span class="string">"react/jsx-no-bind"</span>: 1,          // 当在 render() 里使用事件处理方法时，提前在构造函数里把 this 绑定上去</div><div class="line">    <span class="string">"react/sort-comp"</span>: 1,            // 按照具体规范的React.createClass 的生命周期函数书写代码</div><div class="line">    <span class="string">"react/jsx-pascal-case"</span>: 1        // React模块名使用帕斯卡命名，实例使用骆驼式命名</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> react </tag>
-            
-            <tag> eslint </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -384,8 +360,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;a: 1&#125;;</div><div class="line">&#123;...obj, b: 2&#125;;     // 返回一个新的对象，&#123;a: 1, b: 2&#125;, obj对象不变</div><div class="line">// 等价于下面的用法</div><div class="line">Object.assign(&#123;&#125;, obj, &#123;b: 2&#125;);     // 返回一个新的对象，&#123;a: 1, b: 2&#125;,  obj对象不变</div><div class="line">// 另外Object.assign 还有一个用法</div><div class="line">Object.assign(obj, &#123;b: 2&#125;);      // 返回obj对象并且新增加了b属性：&#123;a: 1, b: 2&#125;  obj对象改变</div><div class="line">// 由于使用的chrome浏览器还不支持第一种用法，只能演示Object.assign。项目中使用babel转换</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/jsdemo3.gif" alt="截图"></p>
 ]]></content>
-      
-        
     </entry>
     
     <entry>
@@ -411,22 +385,6 @@
 <h3 id="运行截图"><a href="#运行截图" class="headerlink" title="运行截图"></a>运行截图</h3><p>完整示例代码见<a href="https://github.com/yezihaohao/notification" target="_blank" rel="external">GitHub</a></p>
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/TEST.gif" alt="截图"></p>
 ]]></content>
-      
-        <categories>
-            
-            <category> 消息推送 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Nodejs </tag>
-            
-            <tag> Socket.io </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -446,14 +404,6 @@
 <p>获取服务端数据之后，在template中创建组件标签，并将serverData发送给子组件G2Line<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--同步设置id传送给子组件--&gt;</div><div class="line">&lt;g2-line :charData=<span class="string">"serverData"</span> :id=<span class="string">"'c1'"</span> id=<span class="string">"c1"</span>&gt;&lt;/g2-line&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="刷新界面，成功看到页面图表的渲染"><a href="#刷新界面，成功看到页面图表的渲染" class="headerlink" title="刷新界面，成功看到页面图表的渲染"></a>刷新界面，成功看到页面图表的渲染</h3><p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/g2%E6%88%AA%E5%9B%BE.gif" alt="截图"><br><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/g2截图2.gif" alt="截图"></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> Vuejs </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -471,22 +421,6 @@
 <h3 id="运行spider-js，并查看数据库中的数据"><a href="#运行spider-js，并查看数据库中的数据" class="headerlink" title="运行spider.js，并查看数据库中的数据"></a>运行spider.js，并查看数据库中的数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node spider.js</div><div class="line">//用上述提到的可视化工具查看数据库是否成功有数据入库</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/QQ%E6%88%AA%E5%9B%BE20170211120738.png" alt="数据库截图"></p>
 ]]></content>
-      
-        <categories>
-            
-            <category> 爬虫 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Javascript </tag>
-            
-            <tag> Nodejs </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -495,20 +429,6 @@
       <content type="html"><![CDATA[<h2 id="项目中常用正则表达式使用整合大全"><a href="#项目中常用正则表达式使用整合大全" class="headerlink" title="项目中常用正则表达式使用整合大全"></a>项目中常用正则表达式使用整合大全</h2><h3 id="提取网页标签内容"><a href="#提取网页标签内容" class="headerlink" title="提取网页标签内容"></a>提取网页标签内容</h3><h4 id="一-单个标签提取"><a href="#一-单个标签提取" class="headerlink" title="一.单个标签提取"></a>一.单个标签提取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> str = `&lt;a class=<span class="string">"menu"</span>&gt;GitHub&lt;/a&gt;`;</div><div class="line"></div><div class="line"><span class="built_in">let</span> content = str.match(/&lt;a class=<span class="string">"menu"</span>&gt;([\s\S]+)&lt;\/a&gt;/)[1];</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="不定时更新中…"><a href="#不定时更新中…" class="headerlink" title="不定时更新中…"></a>不定时更新中…</h2>]]></content>
-      
-        <categories>
-            
-            <category> 正则表达式 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Javascript </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -523,22 +443,6 @@
 <h3 id="用superagent请求豆瓣的某个接口，并把所有的页面链接放到一个数组里面，用eventproxy控制监听该请求结束之后才开始请求相应的详情页面。"><a href="#用superagent请求豆瓣的某个接口，并把所有的页面链接放到一个数组里面，用eventproxy控制监听该请求结束之后才开始请求相应的详情页面。" class="headerlink" title="用superagent请求豆瓣的某个接口，并把所有的页面链接放到一个数组里面，用eventproxy控制监听该请求结束之后才开始请求相应的详情页面。"></a>用superagent请求豆瓣的某个接口，并把所有的页面链接放到一个数组里面，用eventproxy控制监听该请求结束之后才开始请求相应的详情页面。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">superagent.get(URL)</div><div class="line">    .end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> _pageUrls = [];</div><div class="line">        res.body.forEach(<span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</div><div class="line">           _pageUrls.push(val.url);</div><div class="line">        &#125;);</div><div class="line">        ep.emit(<span class="string">'pageUrls'</span>, _pageUrls);   <span class="comment">//监听相关实例，完成之后告诉pageUrls</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
 <h3 id="监听事件完成之后，执行请求相应的豆瓣电影详情页面-并用async控制请求的并发量，可以降低请求的频率和速度"><a href="#监听事件完成之后，执行请求相应的豆瓣电影详情页面-并用async控制请求的并发量，可以降低请求的频率和速度" class="headerlink" title="监听事件完成之后，执行请求相应的豆瓣电影详情页面.并用async控制请求的并发量，可以降低请求的频率和速度"></a>监听事件完成之后，执行请求相应的豆瓣电影详情页面.并用async控制请求的并发量，可以降低请求的频率和速度</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> ep = eventproxy.create(<span class="string">'pageUrls'</span>, (pageUrls) =&gt; &#123;      <span class="comment">//创建一个监听实例</span></div><div class="line">    <span class="keyword">let</span> _http = <span class="function">(<span class="params">url, callback</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> _delay = <span class="built_in">parseInt</span>((<span class="built_in">Math</span>.random() * <span class="number">30000000</span>) % <span class="number">1000</span>, <span class="number">10</span>);   <span class="comment">//随机延时请求</span></div><div class="line">        superagent.get(url)</div><div class="line">            .end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">                <span class="keyword">var</span> $ = cheerio.load(res.text);     <span class="comment">//用cheerio获取整个页面DOM对象</span></div><div class="line">                <span class="keyword">var</span> _data = &#123;<span class="attr">title</span>:<span class="string">''</span>, <span class="attr">type</span>: <span class="string">''</span>, <span class="attr">directories</span>: <span class="string">''</span>, <span class="attr">scriptwriter</span>: <span class="string">''</span>, <span class="attr">actors</span>: <span class="string">''</span>&#125;;</div><div class="line">                _data.title = $(<span class="string">'#content h1 span'</span>).text();</div><div class="line">                _data.directories = $(<span class="string">'#info .attrs'</span>).eq(<span class="number">0</span>).text();</div><div class="line">                _data.scriptwriter = $(<span class="string">'#info .attrs'</span>).eq(<span class="number">1</span>).text();</div><div class="line">                _data.actors = $(<span class="string">'#info .attrs'</span>).eq(<span class="number">2</span>).text();</div><div class="line">                $(<span class="string">'span[property="v:genre"]'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</div><div class="line">                    _data.type += ($(<span class="keyword">this</span>).text() + (index == $(<span class="string">'span[property="v:genre"]'</span>).length - <span class="number">1</span> ? <span class="string">''</span> : <span class="string">'、'</span>));</div><div class="line">                &#125;);</div><div class="line">                <span class="built_in">console</span>.log(_data);</div><div class="line">            &#125;);</div><div class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            callback(<span class="literal">null</span>, url);</div><div class="line">        &#125;, _delay);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">async</span>.mapLimit(pageUrls, <span class="number">3</span>, (url, callback) =&gt; &#123;  <span class="comment">//用async 的 mapLimit(arr, limit, iterator, callback) 接口控制请求并发量为3</span></div><div class="line">        _http(url, callback);</div><div class="line">    &#125;, (err, res) =&gt; &#123;</div><div class="line">        assert.equal(err, <span class="literal">null</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h2 id="本章节结束，未完待续…下期是怎么将抓取的数据存入mongodb数据库！"><a href="#本章节结束，未完待续…下期是怎么将抓取的数据存入mongodb数据库！" class="headerlink" title="本章节结束，未完待续…下期是怎么将抓取的数据存入mongodb数据库！"></a>本章节结束，未完待续…下期是怎么将抓取的数据存入mongodb数据库！</h2>]]></content>
-      
-        <categories>
-            
-            <category> 爬虫 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Javascript </tag>
-            
-            <tag> Nodejs </tag>
-            
-        </tags>
-        
     </entry>
     
   

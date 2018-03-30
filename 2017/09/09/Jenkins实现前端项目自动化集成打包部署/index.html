@@ -11,14 +11,14 @@
   
   
   
-  <meta name="description" content="前言   以前写前端项目打包部署，都是手动运行命令，打包完，然后压缩，再上传到服务器解压。    这种方式确实有点low并且效率也不高。    自从用了Jenkins持续集成工具，写前端项目越来越工程化，再也不用担心忘记部署项目，也不用烦躁每次打包压缩后还要部署多个服务器和环境，更开心的是每次家里写完代码，不用远程公司部署项目，提交代码后自动会为你部署。    本文基于React的前端项目和Git">
-<meta name="keywords" content="前端工程化">
+  <meta name="description" content="前言
+  以前写前端项目打包部署，都是手动运行命令，打包完，然后压缩，再上传到服务器解压。    这种方式确实有点low并且效率也不高。    自从用了Jenkins持续集成工具，写前端项目越来越工程化，再也不用担心忘记部署项目，也不用烦躁每次打包压缩后还要部署多个服务器和环境，更开心的是每次家里写完代码，不用远程公司部署项目，提交代码后自动会为你部署。    本文基于React的前端项目和Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins实现前端项目自动化集成打包部署">
 <meta property="og:url" content="https://yezihaohao.github.io/2017/09/09/Jenkins实现前端项目自动化集成打包部署/index.html">
 <meta property="og:site_name" content="前端博客">
-<meta property="og:description" content="前言   以前写前端项目打包部署，都是手动运行命令，打包完，然后压缩，再上传到服务器解压。    这种方式确实有点low并且效率也不高。    自从用了Jenkins持续集成工具，写前端项目越来越工程化，再也不用担心忘记部署项目，也不用烦躁每次打包压缩后还要部署多个服务器和环境，更开心的是每次家里写完代码，不用远程公司部署项目，提交代码后自动会为你部署。    本文基于React的前端项目和Git">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="前言
+  以前写前端项目打包部署，都是手动运行命令，打包完，然后压缩，再上传到服务器解压。    这种方式确实有点low并且效率也不高。    自从用了Jenkins持续集成工具，写前端项目越来越工程化，再也不用担心忘记部署项目，也不用烦躁每次打包压缩后还要部署多个服务器和环境，更开心的是每次家里写完代码，不用远程公司部署项目，提交代码后自动会为你部署。    本文基于React的前端项目和Git">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins3.png">
@@ -31,10 +31,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins11.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins10.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins12.png">
-<meta property="og:updated_time" content="2017-09-11T15:30:14.648Z">
+<meta property="og:updated_time" content="2017-09-11T15:30:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins实现前端项目自动化集成打包部署">
-<meta name="twitter:description" content="前言   以前写前端项目打包部署，都是手动运行命令，打包完，然后压缩，再上传到服务器解压。    这种方式确实有点low并且效率也不高。    自从用了Jenkins持续集成工具，写前端项目越来越工程化，再也不用担心忘记部署项目，也不用烦躁每次打包压缩后还要部署多个服务器和环境，更开心的是每次家里写完代码，不用远程公司部署项目，提交代码后自动会为你部署。    本文基于React的前端项目和Git">
+<meta name="twitter:description" content="前言
+  以前写前端项目打包部署，都是手动运行命令，打包完，然后压缩，再上传到服务器解压。    这种方式确实有点low并且效率也不高。    自从用了Jenkins持续集成工具，写前端项目越来越工程化，再也不用担心忘记部署项目，也不用烦躁每次打包压缩后还要部署多个服务器和环境，更开心的是每次家里写完代码，不用远程公司部署项目，提交代码后自动会为你部署。    本文基于React的前端项目和Git">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/Jenkins1.png">
   
     <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">

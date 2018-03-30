@@ -11,20 +11,27 @@
   
   
   
-  <meta name="description" content="前言 vue 的组件化开发是一个非常不错的机制.’一处开发,多处引用’，不仅降低的维护成本，提高了开发效率，而且单独的组件有单独的视图和交互数据逻辑，使得系统层次更加分明。若有问题可加群264591039与我讨论~转载文章请标明出处！  开发场景数据可视化是我们互联网常见的功能，所以难免我们会在项目中插入图表等，找到一个还算可以的图形插件，阿里的G2图形库，详情请参见G2官网。接下来就开始我们的V">
-<meta name="keywords" content="Vuejs">
+  <meta name="description" content="前言
+vue 的组件化开发是一个非常不错的机制.’一处开发,多处引用’，不仅降低的维护成本，提高了开发效率，而且单独的组件有单独的视图和交互数据逻辑，使得系统层次更加分明。若有问题可加群264591039与我讨论~转载文章请标明出处！
+
+开发场景数据可视化是我们互联网常见的功能，所以难免我们会在项目中插入图表等，找到一个还算可以的图形插件，阿里的G2图形库，详情请参见G2官网。接下来就开始我们的V">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vuejs2.X组件化-阿里的G2图表组件">
 <meta property="og:url" content="https://yezihaohao.github.io/2017/02/14/Vuejs2-X组件化-阿里的G2图表组件/index.html">
 <meta property="og:site_name" content="前端博客">
-<meta property="og:description" content="前言 vue 的组件化开发是一个非常不错的机制.’一处开发,多处引用’，不仅降低的维护成本，提高了开发效率，而且单独的组件有单独的视图和交互数据逻辑，使得系统层次更加分明。若有问题可加群264591039与我讨论~转载文章请标明出处！  开发场景数据可视化是我们互联网常见的功能，所以难免我们会在项目中插入图表等，找到一个还算可以的图形插件，阿里的G2图形库，详情请参见G2官网。接下来就开始我们的V">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="前言
+vue 的组件化开发是一个非常不错的机制.’一处开发,多处引用’，不仅降低的维护成本，提高了开发效率，而且单独的组件有单独的视图和交互数据逻辑，使得系统层次更加分明。若有问题可加群264591039与我讨论~转载文章请标明出处！
+
+开发场景数据可视化是我们互联网常见的功能，所以难免我们会在项目中插入图表等，找到一个还算可以的图形插件，阿里的G2图形库，详情请参见G2官网。接下来就开始我们的V">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/g2%E6%88%AA%E5%9B%BE.gif">
 <meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/g2截图2.gif">
-<meta property="og:updated_time" content="2017-02-14T08:24:21.780Z">
+<meta property="og:updated_time" content="2017-02-14T08:24:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuejs2.X组件化-阿里的G2图表组件">
-<meta name="twitter:description" content="前言 vue 的组件化开发是一个非常不错的机制.’一处开发,多处引用’，不仅降低的维护成本，提高了开发效率，而且单独的组件有单独的视图和交互数据逻辑，使得系统层次更加分明。若有问题可加群264591039与我讨论~转载文章请标明出处！  开发场景数据可视化是我们互联网常见的功能，所以难免我们会在项目中插入图表等，找到一个还算可以的图形插件，阿里的G2图形库，详情请参见G2官网。接下来就开始我们的V">
+<meta name="twitter:description" content="前言
+vue 的组件化开发是一个非常不错的机制.’一处开发,多处引用’，不仅降低的维护成本，提高了开发效率，而且单独的组件有单独的视图和交互数据逻辑，使得系统层次更加分明。若有问题可加群264591039与我讨论~转载文章请标明出处！
+
+开发场景数据可视化是我们互联网常见的功能，所以难免我们会在项目中插入图表等，找到一个还算可以的图形插件，阿里的G2图形库，详情请参见G2官网。接下来就开始我们的V">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/g2%E6%88%AA%E5%9B%BE.gif">
   
     <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>h5手机端开发问题汇总及解决方案 | 前端博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="H5" />
+  
+  
+  
+  
+  <meta name="description" content="前言
+少侠，请留步，相见必是缘分，赠与你一部《踏坑秘籍》
+
+扎马步踏坑第一式ios竖屏拍照上传，图片被旋转问题
+解决方案12345678// 几个步骤// 1.通过第三方插件exif-js获取到图片的方向// 2.new一个FileReader对象，加载读取上传的图片// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收// 4.在image的onload函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5手机端开发问题汇总及解决方案">
+<meta property="og:url" content="https://yezihaohao.github.io/2018/03/30/H5手机端开发问题汇总及解决方案/index.html">
+<meta property="og:site_name" content="前端博客">
+<meta property="og:description" content="前言
+少侠，请留步，相见必是缘分，赠与你一部《踏坑秘籍》
+
+扎马步踏坑第一式ios竖屏拍照上传，图片被旋转问题
+解决方案12345678// 几个步骤// 1.通过第三方插件exif-js获取到图片的方向// 2.new一个FileReader对象，加载读取上传的图片// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收// 4.在image的onload函数">
+<meta property="og:image" content="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/h501.png">
+<meta property="og:updated_time" content="2018-03-30T05:51:07.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5手机端开发问题汇总及解决方案">
+<meta name="twitter:description" content="前言
+少侠，请留步，相见必是缘分，赠与你一部《踏坑秘籍》
+
+扎马步踏坑第一式ios竖屏拍照上传，图片被旋转问题
+解决方案12345678// 几个步骤// 1.通过第三方插件exif-js获取到图片的方向// 2.new一个FileReader对象，加载读取上传的图片// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收// 4.在image的onload函数">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/h501.png">
+  
+    <link rel="alternate" href="/atom.xml" title="前端博客" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/share.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-H5手机端开发问题汇总及解决方案" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      H5手机端开发问题汇总及解决方案
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/03/30/H5手机端开发问题汇总及解决方案/" class="article-date">
+	  <time datetime="2018-03-30T05:48:56.000Z" itemprop="datePublished">2018-03-30</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>少侠，请留步，相见必是缘分，赠与你一部《踏坑秘籍》</p>
+</blockquote>
+<h3 id="扎马步"><a href="#扎马步" class="headerlink" title="扎马步"></a>扎马步</h3><h4 id="踏坑第一式"><a href="#踏坑第一式" class="headerlink" title="踏坑第一式"></a>踏坑第一式</h4><p><strong>ios竖屏拍照上传，图片被旋转问题</strong></p>
+<p><strong>解决方案</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 几个步骤</span></div><div class="line"><span class="comment">// 1.通过第三方插件exif-js获取到图片的方向</span></div><div class="line"><span class="comment">// 2.new一个FileReader对象，加载读取上传的图片</span></div><div class="line"><span class="comment">// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收</span></div><div class="line"><span class="comment">// 4.在image的onload函数中，利用步骤1中获取到的方向orientation，通过canvas旋转校正，重新绘制一张新图</span></div><div class="line"><span class="comment">// 注意iPhone有3个拍照方向需要处理，横屏拍摄，home键在左侧，竖屏拍摄，home建上下</span></div><div class="line"><span class="comment">// 5.将绘制的新图转成Blob对象，添加到FormData对象中，然后进行校正后的上传操作</span></div><div class="line"><span class="comment">// 代码有点杂，待整理后上传，网上应该是可以找到的</span></div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第二式"><a href="#踏坑第二式" class="headerlink" title="踏坑第二式"></a>踏坑第二式</h4><p><strong>ios：DOM元素固定一边，另一边滚动，滚动很卡的问题</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// (横向滚动用的多些)简单粗暴的办法，样式添加如下属性</div><div class="line">-webkit-overflow-scrolling: touch;</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第三式"><a href="#踏坑第三式" class="headerlink" title="踏坑第三式"></a>踏坑第三式</h4><p><strong>部分手机第三方输入法会将页面网上挤的问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 特定需求页面，比如评论页面，输入框在顶部之类的</span></div><div class="line"><span class="keyword">const</span> interval = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</div><div class="line">&#125;, <span class="number">100</span>)</div><div class="line"><span class="comment">// 注意关闭页面或者销毁组件的时候记得清空定时器</span></div><div class="line">clearInterval(interval);</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第四式"><a href="#踏坑第四式" class="headerlink" title="踏坑第四式"></a>踏坑第四式</h4><p><strong>iPhoneX适配</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 1.viewport meta 标签增加属性viewport-fit=cover</div><div class="line">&lt;meta name="viewport" content="width=device-width, viewport-fit=cover, xxxx"&gt;</div><div class="line">// 2.body元素增加样式</div><div class="line">body &#123;</div><div class="line">  padding-bottom: constant(safe-area-inset-bottom);</div><div class="line">  padding-bottom: env(safe-area-inset-bottom);</div><div class="line">&#125;</div><div class="line">// 3.如有fixed底部的元素，也增加上面样式</div><div class="line">xxx &#123;</div><div class="line">  padding-bottom: constant(safe-area-inset-bottom);</div><div class="line">  padding-bottom: env(safe-area-inset-bottom);</div><div class="line">  background-color: #fff; // 记得添加background-color，不然会出现透明镂空的情况</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第五式"><a href="#踏坑第五式" class="headerlink" title="踏坑第五式"></a>踏坑第五式</h4><p><strong>某些机型不支持video标签的poster属性，特别是安卓</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">用图片元素 <span class="tag">&lt;<span class="name">img</span> /&gt;</span>来代替poster</div><div class="line">播放前显示<span class="tag">&lt;<span class="name">img</span> /&gt;</span>，隐藏 <span class="tag">&lt;<span class="name">video</span> /&gt;</span></div><div class="line">播放后显示<span class="tag">&lt;<span class="name">video</span> /&gt;</span>，隐藏 <span class="tag">&lt;<span class="name">img</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第六式"><a href="#踏坑第六式" class="headerlink" title="踏坑第六式"></a>踏坑第六式</h4><p><strong>CSS透明度颜色设置问题</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Android</span>部分不支持 <span class="selector-tag">hex</span>写法，推荐用<span class="selector-tag">rgba</span>的写法</div><div class="line"><span class="selector-id">#0000009c</span> <span class="selector-tag">--</span>&gt; <span class="selector-tag">rgba</span>(0, 0, 0, 0<span class="selector-class">.61</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第七式"><a href="#踏坑第七式" class="headerlink" title="踏坑第七式"></a>踏坑第七式</h4><p><strong>flex对低版本的ios和Android的支持问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">使用postcss的autoprefixer插件，自动添加浏览器内核前缀，</div><div class="line">并且增加更低浏览器版本的配置，自动添加flex老版本的属性和写法</div><div class="line">autoprefixer(&#123;</div><div class="line">    <span class="attr">browsers</span>: [</div><div class="line">        <span class="string">'iOS &gt;= 6'</span>,     <span class="comment">// 特殊处理支持低版本IOS</span></div><div class="line">        <span class="string">'Safari &gt;= 6'</span>,  <span class="comment">// 特殊处理支持低版本Safari</span></div><div class="line">    ],</div><div class="line">&#125;),</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第八式"><a href="#踏坑第八式" class="headerlink" title="踏坑第八式"></a>踏坑第八式</h4><p><strong>ios 页面回退到长列表出现灰色遮挡问题</strong><br> <img src="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/h501.png" alt="demo截图"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">方案<span class="number">1</span>：对列表数据进行缓存，比如redux之类的用法。</div><div class="line">方案<span class="number">2</span>：回退时，跳到页面顶部。</div><div class="line"><span class="keyword">const</span> timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">1</span>);</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第九式"><a href="#踏坑第九式" class="headerlink" title="踏坑第九式"></a>踏坑第九式</h4><p><strong>ios 日期转换NAN的问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">将日期字符串的格式符号替换成<span class="string">'/'</span>。</div><div class="line">栗子：<span class="string">'yyyy-MM-dd'</span>.replace(<span class="regexp">/-/g</span>, <span class="string">'/'</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第十式（React）"><a href="#踏坑第十式（React）" class="headerlink" title="踏坑第十式（React）"></a>踏坑第十式（React）</h4><p><strong>未知错误异常，导致页面崩溃，空白</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">React <span class="number">16.</span>x 增加了componentDidCatch() 生命周期方法</div><div class="line">捕获全局异常来进行页面的友好提示（具体用法网上有很多资料）</div></pre></td></tr></table></figure></p>
+<h3 id="打完收招"><a href="#打完收招" class="headerlink" title="打完收招"></a>打完收招</h3><p>晋级还需要多多修炼</p>
+<p>前端攻城狮②群：592688854。欢迎感兴趣的各路武林豪杰加入。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/11/腾讯地图React组件-附demo和源码/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">腾讯地图React组件,附demo和源码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扎马步"><span class="toc-number">2.</span> <span class="toc-text">扎马步</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第一式"><span class="toc-number">2.1.</span> <span class="toc-text">踏坑第一式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第二式"><span class="toc-number">2.2.</span> <span class="toc-text">踏坑第二式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第三式"><span class="toc-number">2.3.</span> <span class="toc-text">踏坑第三式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第四式"><span class="toc-number">2.4.</span> <span class="toc-text">踏坑第四式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第五式"><span class="toc-number">2.5.</span> <span class="toc-text">踏坑第五式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第六式"><span class="toc-number">2.6.</span> <span class="toc-text">踏坑第六式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第七式"><span class="toc-number">2.7.</span> <span class="toc-text">踏坑第七式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第八式"><span class="toc-number">2.8.</span> <span class="toc-text">踏坑第八式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第九式"><span class="toc-number">2.9.</span> <span class="toc-text">踏坑第九式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#踏坑第十式（React）"><span class="toc-number">2.10.</span> <span class="toc-text">踏坑第十式（React）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打完收招"><span class="toc-number">3.</span> <span class="toc-text">打完收招</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 前端博客 All Rights Reserved.</p>
+	      <p id="copyRightCn">chenghao 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            前端博客
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 chenghao All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

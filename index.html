@@ -15,7 +15,6 @@
 <meta property="og:url" content="https://yezihaohao.github.io/index.html">
 <meta property="og:site_name" content="前端博客">
 <meta property="og:description" content="学习总结 思考感悟">
-<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端博客">
 <meta name="twitter:description" content="学习总结 思考感悟">
@@ -168,6 +167,62 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-H5手机端开发问题汇总及解决方案"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/03/30/H5手机端开发问题汇总及解决方案/">H5手机端开发问题汇总及解决方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/03/30/H5手机端开发问题汇总及解决方案/" class="article-date">
+	  <time datetime="2018-03-30T05:48:56.000Z" itemprop="datePublished">2018-03-30</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>少侠，请留步，相见必是缘分，赠与你一部《踏坑秘籍》</p>
+</blockquote>
+<h3 id="扎马步"><a href="#扎马步" class="headerlink" title="扎马步"></a>扎马步</h3><h4 id="踏坑第一式"><a href="#踏坑第一式" class="headerlink" title="踏坑第一式"></a>踏坑第一式</h4><p><strong>ios竖屏拍照上传，图片被旋转问题</strong></p>
+<p><strong>解决方案</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 几个步骤</span></div><div class="line"><span class="comment">// 1.通过第三方插件exif-js获取到图片的方向</span></div><div class="line"><span class="comment">// 2.new一个FileReader对象，加载读取上传的图片</span></div><div class="line"><span class="comment">// 3.在fileReader的onload函数中，得到的图片文件用一个Image对象接收</span></div><div class="line"><span class="comment">// 4.在image的onload函数中，利用步骤1中获取到的方向orientation，通过canvas旋转校正，重新绘制一张新图</span></div><div class="line"><span class="comment">// 注意iPhone有3个拍照方向需要处理，横屏拍摄，home键在左侧，竖屏拍摄，home建上下</span></div><div class="line"><span class="comment">// 5.将绘制的新图转成Blob对象，添加到FormData对象中，然后进行校正后的上传操作</span></div><div class="line"><span class="comment">// 代码有点杂，待整理后上传，网上应该是可以找到的</span></div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第二式"><a href="#踏坑第二式" class="headerlink" title="踏坑第二式"></a>踏坑第二式</h4><p><strong>ios：DOM元素固定一边，另一边滚动，滚动很卡的问题</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// (横向滚动用的多些)简单粗暴的办法，样式添加如下属性</div><div class="line">-webkit-overflow-scrolling: touch;</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第三式"><a href="#踏坑第三式" class="headerlink" title="踏坑第三式"></a>踏坑第三式</h4><p><strong>部分手机第三方输入法会将页面网上挤的问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 特定需求页面，比如评论页面，输入框在顶部之类的</span></div><div class="line"><span class="keyword">const</span> interval = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</div><div class="line">&#125;, <span class="number">100</span>)</div><div class="line"><span class="comment">// 注意关闭页面或者销毁组件的时候记得清空定时器</span></div><div class="line">clearInterval(interval);</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第四式"><a href="#踏坑第四式" class="headerlink" title="踏坑第四式"></a>踏坑第四式</h4><p><strong>iPhoneX适配</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 1.viewport meta 标签增加属性viewport-fit=cover</div><div class="line">&lt;meta name="viewport" content="width=device-width, viewport-fit=cover, xxxx"&gt;</div><div class="line">// 2.body元素增加样式</div><div class="line">body &#123;</div><div class="line">  padding-bottom: constant(safe-area-inset-bottom);</div><div class="line">  padding-bottom: env(safe-area-inset-bottom);</div><div class="line">&#125;</div><div class="line">// 3.如有fixed底部的元素，也增加上面样式</div><div class="line">xxx &#123;</div><div class="line">  padding-bottom: constant(safe-area-inset-bottom);</div><div class="line">  padding-bottom: env(safe-area-inset-bottom);</div><div class="line">  background-color: #fff; // 记得添加background-color，不然会出现透明镂空的情况</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第五式"><a href="#踏坑第五式" class="headerlink" title="踏坑第五式"></a>踏坑第五式</h4><p><strong>某些机型不支持video标签的poster属性，特别是安卓</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">用图片元素 <span class="tag">&lt;<span class="name">img</span> /&gt;</span>来代替poster</div><div class="line">播放前显示<span class="tag">&lt;<span class="name">img</span> /&gt;</span>，隐藏 <span class="tag">&lt;<span class="name">video</span> /&gt;</span></div><div class="line">播放后显示<span class="tag">&lt;<span class="name">video</span> /&gt;</span>，隐藏 <span class="tag">&lt;<span class="name">img</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第六式"><a href="#踏坑第六式" class="headerlink" title="踏坑第六式"></a>踏坑第六式</h4><p><strong>CSS透明度颜色设置问题</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Android</span>部分不支持 <span class="selector-tag">hex</span>写法，推荐用<span class="selector-tag">rgba</span>的写法</div><div class="line"><span class="selector-id">#0000009c</span> <span class="selector-tag">--</span>&gt; <span class="selector-tag">rgba</span>(0, 0, 0, 0<span class="selector-class">.61</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第七式"><a href="#踏坑第七式" class="headerlink" title="踏坑第七式"></a>踏坑第七式</h4><p><strong>flex对低版本的ios和Android的支持问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">使用postcss的autoprefixer插件，自动添加浏览器内核前缀，</div><div class="line">并且增加更低浏览器版本的配置，自动添加flex老版本的属性和写法</div><div class="line">autoprefixer(&#123;</div><div class="line">    <span class="attr">browsers</span>: [</div><div class="line">        <span class="string">'iOS &gt;= 6'</span>,     <span class="comment">// 特殊处理支持低版本IOS</span></div><div class="line">        <span class="string">'Safari &gt;= 6'</span>,  <span class="comment">// 特殊处理支持低版本Safari</span></div><div class="line">    ],</div><div class="line">&#125;),</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第八式"><a href="#踏坑第八式" class="headerlink" title="踏坑第八式"></a>踏坑第八式</h4><p><strong>ios 页面回退到长列表出现灰色遮挡问题</strong><br> <img src="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/h501.png" alt="demo截图"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">方案<span class="number">1</span>：对列表数据进行缓存，比如redux之类的用法。</div><div class="line">方案<span class="number">2</span>：回退时，跳到页面顶部。</div><div class="line"><span class="keyword">const</span> timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">1</span>);</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第九式"><a href="#踏坑第九式" class="headerlink" title="踏坑第九式"></a>踏坑第九式</h4><p><strong>ios 日期转换NAN的问题</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">将日期字符串的格式符号替换成<span class="string">'/'</span>。</div><div class="line">栗子：<span class="string">'yyyy-MM-dd'</span>.replace(<span class="regexp">/-/g</span>, <span class="string">'/'</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="踏坑第十式（React）"><a href="#踏坑第十式（React）" class="headerlink" title="踏坑第十式（React）"></a>踏坑第十式（React）</h4><p><strong>未知错误异常，导致页面崩溃，空白</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">React <span class="number">16.</span>x 增加了componentDidCatch() 生命周期方法</div><div class="line">捕获全局异常来进行页面的友好提示（具体用法网上有很多资料）</div></pre></td></tr></table></figure></p>
+<h3 id="打完收招"><a href="#打完收招" class="headerlink" title="打完收招"></a>打完收招</h3><p>晋级还需要多多修炼</p>
+<p>前端攻城狮②群：592688854。欢迎感兴趣的各路武林豪杰加入。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-腾讯地图React组件-附demo和源码"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -192,11 +247,11 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一个对腾讯web地图简单封装的React组件"><a href="#一个对腾讯web地图简单封装的React组件" class="headerlink" title="一个对腾讯web地图简单封装的React组件"></a>一个对腾讯web地图简单封装的React组件</h4><p><strong>GitHub源码地址：<a href="https://github.com/yezihaohao/react-qmap" target="_blank" rel="noopener">戳我</a></strong> </p>
-<p><strong>栗子：<a href="https://cheng_haohao.gitee.io/reactqmap/#/dashboard" target="_blank" rel="noopener">戳我</a></strong></p>
-<p> <strong>栗子源码：<a href="https://github.com/yezihaohao/react-qmap/tree/master/examples/src/components/maps" target="_blank" rel="noopener">戳我</a></strong>  </p>
+        <h4 id="一个对腾讯web地图简单封装的React组件"><a href="#一个对腾讯web地图简单封装的React组件" class="headerlink" title="一个对腾讯web地图简单封装的React组件"></a>一个对腾讯web地图简单封装的React组件</h4><p><strong>GitHub源码地址：<a href="https://github.com/yezihaohao/react-qmap">戳我</a></strong> </p>
+<p><strong>栗子：<a href="https://cheng_haohao.gitee.io/reactqmap/#/dashboard">戳我</a></strong></p>
+<p> <strong>栗子源码：<a href="https://github.com/yezihaohao/react-qmap/tree/master/examples/src/components/maps">戳我</a></strong>  </p>
 <p> <img src="https://raw.githubusercontent.com/yezihaohao/react-qmap/master/examples/src/styles/t.gif" alt="demo截图"></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-qmap  </span><br><span class="line"></span><br><span class="line">or npm install react-qmap</span><br></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn add react-qmap  </div><div class="line"></div><div class="line">or npm install react-qmap</div></pre></td></tr></table></figure>
         <!-- 一个对腾讯web地图简单封装的React组件GitHub源码地址：戳我 
 栗子：戳我
  栗子源码：戳我  
@@ -678,54 +733,6 @@ vue 的组件化开发是一个非常不错的机制.’一处开发,多处引�
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Javascript正则表达式整合"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/10/Javascript正则表达式整合/">Javascript正则表达式整合</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/10/Javascript正则表达式整合/" class="article-date">
-	  <time datetime="2017-02-10T03:54:50.000Z" itemprop="datePublished">2017-02-10</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/正则表达式/">正则表达式</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="项目中常用正则表达式使用整合大全"><a href="#项目中常用正则表达式使用整合大全" class="headerlink" title="项目中常用正则表达式使用整合大全"></a>项目中常用正则表达式使用整合大全</h2><h3 id="提取网页标签内容"><a href="#提取网页标签内容" class="headerlink" title="提取网页标签内容"></a>提取网页标签内容</h3><h4 id="一-单个标签提取"><a href="#一-单个标签提取" class="headerlink" title="一.单个标签提取"></a>一.单个标签提取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> str = `&lt;a class=<span class="string">"menu"</span>&gt;GitHub&lt;/a&gt;`;</div><div class="line"></div><div class="line"><span class="built_in">let</span> content = str.match(/&lt;a class=<span class="string">"menu"</span>&gt;([\s\S]+)&lt;\/a&gt;/)[1];</div></pre></td></tr></table></figure>
-        <!-- 项目中常用正则表达式使用整合大全提取网页标签内容一.单个标签提取123let str = `&lt;a class="menu"&gt;GitHub&lt;/a&gt;`;let content = str.match(/&lt;a class="menu"&gt;([\s\S]+)&lt;\/a&gt;/)[1];
-
-不定时更新中…...  -->
-        <p class="article-more-link">
-          <a href="/2017/02/10/Javascript正则表达式整合/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
 
     </footer>
   </div>
